@@ -2,23 +2,6 @@
 var searchFormEl = document.querySelector('#dog-form');
 var zipcodeInputEl = document.querySelector('#zipcode');
 
-//var requestUrl = 'https://api.thedogapi.com/v1/breeds?breed_id=air&api_key=4967806f-5944-4473-9348-b6101abfe209';
-
-//fetch(requestUrl)
-//   .then(response => response.JSON())
- // .then(data => console.log(data)); 
-    
-  
-//   console.log(response);
-//   .then(function (data) {
-//     console.log('Github Repo Issues \n----------');
-//     for (var i = 0; i < data.length; i++) {
-//       console.log(data[i].url);
-//       console.log(data[i].user.login);
-//     }
-//   });
-
-
 //Submit Form event handler
 var formSubmitHandler = function (event) {
   event.preventDefault();
@@ -83,3 +66,28 @@ var showPetResults = function (results){
 };
 
 searchFormEl.addEventListener('submit', formSubmitHandler);
+
+// Dog API 
+var dogUrl = 'https://api.thedogapi.com/v1/breeds/search?q=lab&api_key=4967806f-5944-4473-9348-b6101abfe209';
+var breedData = document.getElementById('breed-data');
+
+fetch(dogUrl)
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+  console.log(data)
+  
+  var breedWeight = document.createElement('ul')
+  var breedTemperment = document
+
+  breedWeight.innerHTML = '<li>' + 'Weight: ' + data[0].weight.imperial + 'lbs'+'</li>';
+ 
+    breedData.append(breedWeight);
+
+    document.getElementById('dog-breed').textContent = data[0].name + '\'s';
+  
+});
+
+
+
