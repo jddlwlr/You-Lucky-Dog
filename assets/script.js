@@ -1,6 +1,13 @@
 //Event Listener variables
 var searchFormEl = document.querySelector('#dog-form');
 var zipcodeInputEl = document.querySelector('#zipcode');
+var dogNameEl = document.querySelector('#dog-name');
+var dogPhotoEl = document.querySelector('#dog-photo');
+var dogAgeEl = document.querySelector('#dog-age');
+var thisDogBreedEl = document.querySelector('#this-dog-breed');
+var dogGenderEl = document.querySelector('#dog-gender');
+var dogSizeEl = document.querySelector('#dog-size');
+var orgUrlEl = document.querySelector('#org-Url');
 
 //Submit Form event handler
 var formSubmitHandler = function (event) {
@@ -22,9 +29,14 @@ var formSubmitHandler = function (event) {
 //Create initial authorization call to PetFinder
 
 var getToken = function (zipcode) {
-  var apiTokenUrl = 'https://api.petfinder.com/v2/oauth2/token?grant_type=client_credentials&client_id=GxKYrnyVF48Z4i8rOwDRcyoCtA3hpU1fsY7rFg2nUikNFY46eX&client_secret=9NJHpYc4dOdTMoUhrovPZ8b67crTmVopJOyJuBXY';
+  var apiTokenUrl = 'https://api.petfinder.com/v2/oauth2/token';
   fetch(apiTokenUrl, {
     method:'POST',
+    body: 'grant_type=client_credentials&client_id=GxKYrnyVF48Z4i8rOwDRcyoCtA3hpU1fsY7rFg2nUikNFY46eX&client_secret=9NJHpYc4dOdTMoUhrovPZ8b67crTmVopJOyJuBXY',
+  
+  	headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
   })
     .then(function (response) {
       if (response.ok) {
@@ -32,7 +44,7 @@ var getToken = function (zipcode) {
           getPetResults(data, zipcode);
         });
       } else {
-        alert('Unable to connect to Petfinder');
+        alert('Unauthorized');
       }
     })
 
@@ -40,8 +52,8 @@ var getToken = function (zipcode) {
 
 var getPetResults = function (results, zipcode){
 
-var petFinderURL ='https://api.petfinder.com/v2/animals?type=dog&status=adoptable&location='+ zipcode;
-var bearer = 'Bearer ' + results.access_token;
+var petFinderURL ='https://api.petfinder.com/v2/animals?type=dog&status=adoptable&age=senior&location='+ zipcode;
+var bearer = results.token_type + ' ' + results.access_token;
 
 fetch(petFinderURL,{ 
   headers: {
@@ -60,8 +72,32 @@ fetch(petFinderURL,{
 })
 };
 
+//Function for displaying Dog information
 var showPetResults = function (results){
   console.log(results);
+  if (results.length === 0) {
+    dogNameEl.textContent = 'No dogs found';
+    return;
+  }
+  var dogPhotoUrl = '';
+  var orgUrl = results.animals[0].url;
+  if (results.animals[0].photos.length === 0){
+    dogPhotoUrl = '';
+  }
+
+  else{
+    dogPhotoUrl = results.animals[0].photos[0].medium;
+  }
+
+  dogNameEl.textContent = 'Meet ' + results.animals[0].name + "!";
+  dogPhotoEl.setAttribute("src",dogPhotoUrl);
+  thisDogBreedEl.textContent = 'Breed: ' + results.animals[0].breeds.primary;
+  dogAgeEl.textContent = 'Age: ' + results.animals[0].age;
+  dogGenderEl.textContent = 'Gender: ' + results.animals[0].gender;
+  dogSizeEl.textContent = 'Size: ' + results.animals[0].size;
+  orgUrlEl.setAttribute("href", orgUrl);
+  orgUrlEl.innerHTML = 'Visit the organization for this dog'
+
 
 };
 
