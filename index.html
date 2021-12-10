@@ -21,9 +21,9 @@
             <div class="container">
               <div class="navbar-brand">
                 <a class="navbar-item">
-                  <h1 class="title is-warning is-center">Puppy Love</h1>
+                  <h1 class="title is-center">You Lucky Dog</h1>
                   
-                </a>
+               </a>
                 <span class="navbar-burger" data-target="navbarMenuHeroA">
                   <span></span>
                   <span></span>
@@ -43,9 +43,6 @@
                   </a>
                   <span class="navbar-item">
                     <a class="button is-primary is-inverted">
-                      <span class="icon">
-                        <i class="fab fa-github"></i>
-                      </span>
                       <span>Contact Us</span>
                     </a>
                   </span>
@@ -59,30 +56,37 @@
         <div class="hero-body">
           <div class="container has-text-centered">
             <p class="title">
-              You Lucky Dog!!
+             Let's find your pet!!
             </p>
-            <div class="columns">
-              <div class="column is-one-third">
+            
+              
                 <div id="search-container">
                   <h3>Search Available Dogs</h3>
                   <form id="dog-form">
-                    <input name="zipcode" id="zipcode" type="text" autofocus="true" class="form-input" />
+                    <input name="zipcode" id="zipcode" type="text" autofocus="true" class="form-input" placeholder="Enter Zipcode"/>
                     <button class="button is-warning is-small" type="submit">Get Lucky Dog</button>
                   </form>
                   </div>
+                  <br>
+                  <br>
+                  <br>
+                
+                <div class="columns is-0">
+                <div class="column">
+                  <div id="pet-results">
+                    <p><span id="this-dog-breed"></span></p>
+                    <p><span id="dog-age"></span></p>
+                    <p><span id="dog-gender"></span></p>
+                    <p><span id="dog-size"></span></p>
+                    <p><a id="org-Url" href=""></a></p>
+                  </div>
                 </div>
-              </div>
               <div class="column">
                 <div id="pet-results">
                   <h3><span id="dog-name"> </span></h3>
                   <button id="leftArrow"><</button>
                   <img id="dog-photo" src="" alt="Photo of Dog"></h2>
                   <button id='rightArrow'>></button>
-                  <p><span id="this-dog-breed"></span></p>
-                  <p><span id="dog-age"></span></p>
-                  <p><span id="dog-gender"></span></p>
-                  <p><span id="dog-size"></span></p>
-                  <p><a id="org-Url" href=""></a></p>
                 </div>
               </div>
               <div class="column">
