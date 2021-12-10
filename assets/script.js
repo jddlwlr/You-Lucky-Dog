@@ -101,6 +101,7 @@ var showPetResults = function (results){
 
   dogNameEl.textContent = 'Meet ' + results.animals[petArrayPosition].name + "!";
   dogPhotoEl.setAttribute("src",dogPhotoUrl);
+  dogPhotoEl.setAttribute("class", "show");
   thisDogBreedEl.textContent = 'Breed: ' + results.animals[petArrayPosition].breeds.primary;
   dogAgeEl.textContent = 'Age: ' + results.animals[petArrayPosition].age;
   dogGenderEl.textContent = 'Gender: ' + results.animals[petArrayPosition].gender;
@@ -108,6 +109,7 @@ var showPetResults = function (results){
   orgUrlEl.setAttribute("href", orgUrl);
   orgUrlEl.innerHTML = 'Visit the organization for this dog'
 
+  arrowHandler();
 
 };
 
@@ -156,6 +158,24 @@ var rightArrowHandler = function(){
   dogApi(updatedBreedRight);
   
   }
+
+  //Controls whether the arrows are shown
+var arrowHandler = function(){
+if (petArrayPosition > 0){
+  leftArrowEl.setAttribute("class", "show");
+}
+else{
+  leftArrowEl.setAttribute("class", "no-show");
+}
+
+if (petArrayPosition < petFinderResults.animals.length-1){
+  rightArrowEl.setAttribute("class", "show");
+}
+else{
+  rightArrowEl.setAttribute("class", "no-show");
+}
+
+}
 
 //Button and Form handlers
 searchFormEl.addEventListener('submit', formSubmitHandler);
