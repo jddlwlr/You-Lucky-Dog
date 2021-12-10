@@ -8,8 +8,9 @@ var thisDogBreedEl = document.querySelector('#this-dog-breed');
 var dogGenderEl = document.querySelector('#dog-gender');
 var dogSizeEl = document.querySelector('#dog-size');
 var orgUrlEl = document.querySelector('#org-Url');
-var leftArrowEl = document.querySelector('#left-arrow');
-var rightArrowEl = document.querySelector('#right-arrow');
+var leftArrowEl = document.querySelector('#leftArrow');
+var rightArrowEl = document.querySelector('#rightArrow');
+var dogWeightEl = document.querySelector('#dog-weight');
 
 //Additional variables
 var petFinderResults;
@@ -89,7 +90,7 @@ var showPetResults = function (results){
     return;
   }
   var dogPhotoUrl = '';
-  var orgUrl = results.animals[petArrayPosition].url;
+  var orgUrl = results.animals[0].url;
   if (results.animals[petArrayPosition].photos.length === 0){
     dogPhotoUrl = '';
   }
@@ -127,12 +128,10 @@ fetch(dogUrl)
 .then(function (data) {
   console.log(data)
   
-  var breedWeight = document.createElement('ul');
-  var breedTemperment = document;
 
-  breedWeight.innerHTML = '<li>' + 'Weight: ' + data[0].weight.imperial + 'lbs'+'</li>';
- 
-    breedData.append(breedWeight);
+  //var breedTemperment = document;
+
+  dogWeightEl.textContent = 'Weight: ' + data[0].weight.imperial + 'lbs';
 
     document.getElementById('dog-breed').textContent = data[0].name + '\'s';
   
@@ -144,16 +143,16 @@ fetch(dogUrl)
 var leftArrowHandler = function(){
 petArrayPosition--;
 showPetResults(petFinderResults);
-var updatedBreedLeft = data.animals[petArrayPosition].breeds.primary;
+var updatedBreedLeft = petFinderResults.animals[petArrayPosition].breeds.primary;
 dogApi(updatedBreedLeft);
 }
 
 
 //Display Dogs on left arrow clicks
 var rightArrowHandler = function(){
-  petArrayPosition--;
+  petArrayPosition++;
   showPetResults(petFinderResults);
-  var updatedBreedRight = data.animals[petArrayPosition].breeds.primary;
+  var updatedBreedRight = petFinderResults.animals[petArrayPosition].breeds.primary;
   dogApi(updatedBreedRight);
   
   }
