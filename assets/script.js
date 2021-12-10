@@ -8,6 +8,13 @@ var thisDogBreedEl = document.querySelector('#this-dog-breed');
 var dogGenderEl = document.querySelector('#dog-gender');
 var dogSizeEl = document.querySelector('#dog-size');
 var orgUrlEl = document.querySelector('#org-Url');
+var leftArrowEl = document.querySelector('#leftArrow');
+var rightArrowEl = document.querySelector('#rightArrow');
+var dogWeightEl = document.querySelector('#dog-weight');
+
+//Additional variables
+var petFinderResults;
+var petArrayPosition = 0;
 
 //Submit Form event handler
 var formSubmitHandler = function (event) {
@@ -64,8 +71,9 @@ fetch(petFinderURL,{
 .then(function (response) {
   if (response.ok) {
     response.json().then(function (data) {
-      showPetResults(data);
-      var currentBreed = data.animals[0].breeds.primary;
+      petFinderResults = data;
+      showPetResults(petFinderResults);
+      var currentBreed = data.animals[petArrayPosition].breeds.primary;
       dogApi(currentBreed);
     });
   } else {
@@ -83,27 +91,27 @@ var showPetResults = function (results){
   }
   var dogPhotoUrl = '';
   var orgUrl = results.animals[0].url;
-  if (results.animals[0].photos.length === 0){
+  if (results.animals[petArrayPosition].photos.length === 0){
     dogPhotoUrl = '';
   }
 
   else{
-    dogPhotoUrl = results.animals[0].photos[0].medium;
+    dogPhotoUrl = results.animals[petArrayPosition].photos[0].medium;
   }
 
-  dogNameEl.textContent = 'Meet ' + results.animals[0].name + "!";
+  dogNameEl.textContent = 'Meet ' + results.animals[petArrayPosition].name + "!";
   dogPhotoEl.setAttribute("src",dogPhotoUrl);
-  thisDogBreedEl.textContent = 'Breed: ' + results.animals[0].breeds.primary;
-  dogAgeEl.textContent = 'Age: ' + results.animals[0].age;
-  dogGenderEl.textContent = 'Gender: ' + results.animals[0].gender;
-  dogSizeEl.textContent = 'Size: ' + results.animals[0].size;
+  thisDogBreedEl.textContent = 'Breed: ' + results.animals[petArrayPosition].breeds.primary;
+  dogAgeEl.textContent = 'Age: ' + results.animals[petArrayPosition].age;
+  dogGenderEl.textContent = 'Gender: ' + results.animals[petArrayPosition].gender;
+  dogSizeEl.textContent = 'Size: ' + results.animals[petArrayPosition].size;
   orgUrlEl.setAttribute("href", orgUrl);
   orgUrlEl.innerHTML = 'Visit the organization for this dog'
 
 
 };
 
-searchFormEl.addEventListener('submit', formSubmitHandler);
+
 
 // Dog API 
 
@@ -120,12 +128,10 @@ fetch(dogUrl)
 .then(function (data) {
   console.log(data)
   
-  var breedWeight = document.createElement('ul')
-  var breedTemperment = document
 
-  breedWeight.innerHTML = '<li>' + 'Weight: ' + data[0].weight.imperial + 'lbs'+'</li>';
- 
-    breedData.append(breedWeight);
+  //var breedTemperment = document;
+
+  dogWeightEl.textContent = 'Weight: ' + data[0].weight.imperial + 'lbs';
 
     document.getElementById('dog-breed').textContent = data[0].name + '\'s';
   
@@ -133,3 +139,25 @@ fetch(dogUrl)
 }
 
 
+//Display Dogs on left arrow clicks
+var leftArrowHandler = function(){
+petArrayPosition--;
+showPetResults(petFinderResults);
+var updatedBreedLeft = petFinderResults.animals[petArrayPosition].breeds.primary;
+dogApi(updatedBreedLeft);
+}
+
+
+//Display Dogs on left arrow clicks
+var rightArrowHandler = function(){
+  petArrayPosition++;
+  showPetResults(petFinderResults);
+  var updatedBreedRight = petFinderResults.animals[petArrayPosition].breeds.primary;
+  dogApi(updatedBreedRight);
+  
+  }
+
+//Button and Form handlers
+searchFormEl.addEventListener('submit', formSubmitHandler);
+leftArrowEl.addEventListener('click', leftArrowHandler);
+rightArrowEl.addEventListener('click', rightArrowHandler);
