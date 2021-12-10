@@ -168,7 +168,7 @@ else{
   leftArrowEl.setAttribute("class", "no-show");
 }
 
-if (petArrayPosition < petFinderResults.animals.length){
+if (petArrayPosition < petFinderResults.animals.length-1){
   rightArrowEl.setAttribute("class", "show");
 }
 else{
