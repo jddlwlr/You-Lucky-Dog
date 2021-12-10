@@ -65,6 +65,8 @@ fetch(petFinderURL,{
   if (response.ok) {
     response.json().then(function (data) {
       showPetResults(data);
+      var currentBreed = data.animals[0].breeds.primary;
+      dogApi(currentBreed);
     });
   } else {
     alert('Unable to connect to Petfinder');
@@ -104,7 +106,11 @@ var showPetResults = function (results){
 searchFormEl.addEventListener('submit', formSubmitHandler);
 
 // Dog API 
-var dogUrl = 'https://api.thedogapi.com/v1/breeds/search?q=lab&api_key=4967806f-5944-4473-9348-b6101abfe209';
+
+var dogApi = function(currentBreed){
+
+// var currentBreed = data.animals[0].breeds.primary;
+var dogUrl = 'https://api.thedogapi.com/v1/breeds/search?q='+ currentBreed + '&api_key=4967806f-5944-4473-9348-b6101abfe209';
 var breedData = document.getElementById('breed-data');
 
 fetch(dogUrl)
@@ -124,6 +130,6 @@ fetch(dogUrl)
     document.getElementById('dog-breed').textContent = data[0].name + '\'s';
   
 });
-
+}
 
 
