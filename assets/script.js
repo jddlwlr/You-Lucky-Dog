@@ -8,10 +8,26 @@ var searchAgeEl = document.querySelector('#search-age');
 
 var dogNameEl = document.querySelector('#dog-name');
 var dogPhotoEl = document.querySelector('#dog-photo');
+
+//Photo Modal event listeners
+var modalPhotoEl = document.querySelector('#modal-photo');
+var closeModalEl = document.querySelector('#close-modal');
+var photoModalContainerEl = document.querySelector('#photo-modal-container');
+
+//Page load Alert message modals
+var closeAlertModalEl = document.querySelector('#close-alert-modal');
+var alertModalEl = document.querySelector('#alert-modal');
+
+//Zipcode message modals
+var closeZipcodeModalEl = document.querySelector('#close-zipcode-modal');
+var zipcodeModalEl = document.querySelector('#zipcode-modal');
+
+
 var dogAgeEl = document.querySelector('#dog-age');
 var thisDogBreedEl = document.querySelector('#this-dog-breed');
 var dogGenderEl = document.querySelector('#dog-gender');
 var dogSizeEl = document.querySelector('#dog-size');
+var contactBtnEl = document.querySelector('#contact-btn');
 var orgUrlEl = document.querySelector('#org-Url');
 var leftArrowEl = document.querySelector('#leftArrow');
 var rightArrowEl = document.querySelector('#rightArrow');
@@ -27,6 +43,9 @@ var breedTempermentEl = document.querySelector('#breed-temperment');
 //Additional variables
 var petFinderResults;
 var petArrayPosition = 0;
+var dogPhotoUrl = '';
+var dogPhotoLargeUrl = ''
+var contactEmail='';
 
 //Submit Form event handler
 var formSubmitHandler = function (event) {
@@ -67,7 +86,7 @@ searchSize='';
     
   } else {
 
-    alert('Please enter a zip code');
+    zipcodeModalHandler();
   }
 };
 
@@ -89,7 +108,7 @@ var getToken = function (zipcode,searchAge,searchSize,searchGender) {
           getPetResults(data, zipcode, searchAge, searchSize, searchGender);
         });
       } else {
-        alert('Unauthorized');
+        alertModalHandler();
       }
     })
 
@@ -115,7 +134,7 @@ fetch(petFinderURL,{
       dogApi(currentBreed);
     });
   } else {
-    alert('Unable to connect to Petfinder');
+    alertModalHandler();
   }
 })
 };
@@ -131,14 +150,27 @@ var showPetResults = function (results){
     dogNameEl.textContent = 'No dogs found';
     return;
   }
-  var dogPhotoUrl = '';
-  var orgUrl = results.animals[0].url;
+
+  var orgUrl = results.animals[petArrayPosition].url;
+  contactEmail = results.animals[petArrayPosition].contact.email;
+
+  if(contactEmail){
+    contactBtnEl.setAttribute("class", "button is-primary show");
+
+  }
+  else{
+    console.log("exception caught");
+    contactBtnEl.setAttribute("class", "button is-primary no-show");
+  }
+
   if (results.animals[petArrayPosition].photos.length === 0){
     dogPhotoUrl = 'assets/images/no-image.png';
+    dogPhotoLargeUrl = 'assets/images/no-image.png';
   }
 
   else{
     dogPhotoUrl = results.animals[petArrayPosition].photos[0].medium;
+    dogPhotoLargeUrl = results.animals[petArrayPosition].photos[0].large;
   }
 
   dogNameEl.textContent = 'Meet ' + results.animals[petArrayPosition].name + "!";
@@ -148,6 +180,9 @@ var showPetResults = function (results){
   dogAgeEl.textContent = 'Age: ' + results.animals[petArrayPosition].age;
   dogGenderEl.textContent = 'Gender: ' + results.animals[petArrayPosition].gender;
   dogSizeEl.textContent = 'Size: ' + results.animals[petArrayPosition].size;
+
+
+
   orgUrlEl.setAttribute("href", orgUrl);
   orgUrlEl.setAttribute("class", "");
   orgUrlEl.innerHTML = '<button class="button is-primary">Visit the About page for this dog</button>';
@@ -230,7 +265,47 @@ else{
 
 }
 
+//Pops out photo of dog into Modal
+var imageHandler = function(){
+  modalPhotoEl.setAttribute("src",dogPhotoLargeUrl);
+  photoModalContainerEl.setAttribute("class","modal is-active")
+
+}
+
+//Closes a Modal
+var closeModalHandler = function(){
+  if(photoModalContainerEl.getClass = 'modal is-active'){
+    photoModalContainerEl.setAttribute("class","modal")
+  }
+  if(alertModalEl.getClass = 'modal is-active'){
+    alertModalEl.setAttribute("class","modal")
+  }
+
+  if(zipcodeModalEl.getClass = 'modal is-active'){
+    zipcodeModalEl.setAttribute("class","modal")
+  }
+
+
+else{return;}
+}
+
+//API alert modals
+var alertModalHandler = function(){
+  alertModalEl.setAttribute("class","modal is-active")
+
+}
+
+//Zipcode alert modals
+var zipcodeModalHandler = function(){
+  zipcodeModalEl.setAttribute("class","modal is-active")
+
+}
+
 //Button and Form handlers
 searchFormEl.addEventListener('submit', formSubmitHandler);
 leftArrowEl.addEventListener('click', leftArrowHandler);
 rightArrowEl.addEventListener('click', rightArrowHandler);
+dogPhotoEl.addEventListener('click', imageHandler);
+closeModalEl.addEventListener('click', closeModalHandler);
+closeAlertModalEl.addEventListener('click', closeModalHandler);
+closeZipcodeModalEl.addEventListener('click', closeModalHandler);
