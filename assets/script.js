@@ -1,6 +1,11 @@
 //Event Listener variables
 var searchFormEl = document.querySelector('#dog-form');
 var zipcodeInputEl = document.querySelector('#zipcode');
+var searchGenderEl = document.querySelector('#search-gender');
+var searchSizeEl = document.querySelector('#search-size');
+var searchAgeEl = document.querySelector('#search-age');
+
+
 var dogNameEl = document.querySelector('#dog-name');
 var dogPhotoEl = document.querySelector('#dog-photo');
 var dogAgeEl = document.querySelector('#dog-age');
@@ -10,10 +15,14 @@ var dogSizeEl = document.querySelector('#dog-size');
 var orgUrlEl = document.querySelector('#org-Url');
 var leftArrowEl = document.querySelector('#leftArrow');
 var rightArrowEl = document.querySelector('#rightArrow');
-var dogWeightEl = document.querySelector('#dog-weight');
 var breedContainerEl = document.querySelector('#breedContainer');
 var petSlideshowEl = document.querySelector('#petSlideshow');
 var breedContainer2El = document.querySelector('#breedContainer2');
+
+var breedWeightEl = document.querySelector('#breed-weight');
+var breedUseEl = document.querySelector('#breed-use');
+var breedAgeEl = document.querySelector('#breed-age');
+var breedTempermentEl = document.querySelector('#breed-temperment');
 
 //Additional variables
 var petFinderResults;
@@ -24,9 +33,35 @@ var formSubmitHandler = function (event) {
   event.preventDefault();
 
   var zipcode = zipcodeInputEl.value.trim();
+  var searchAge = searchAgeEl.value.trim();
+  var searchGender = searchGenderEl.value.trim();
+  var searchSize = searchSizeEl.value.trim();
+
+  if(searchAge){
+    searchAge = "&age=" + searchAgeEl.value.trim();
+  }
+  else{
+searchAge='';
+  }
+
+  if(searchGender){
+    searchGender = "&gender=" + searchGenderEl.value.trim();
+  }
+  else{
+searchGender='';
+  }
+
+  if(searchSize){
+    searchSize = "&size=" + searchSizeEl.value.trim();
+  }
+  else{
+searchSize='';
+  }
+
+
 
   if (zipcode) {
-      getToken(zipcode);
+      getToken(zipcode,searchAge,searchSize,searchGender);
       zipcodeInputEl.value = '';
 
     
@@ -38,7 +73,7 @@ var formSubmitHandler = function (event) {
 
 //Create initial authorization call to PetFinder
 
-var getToken = function (zipcode) {
+var getToken = function (zipcode,searchAge,searchSize,searchGender) {
   var apiTokenUrl = 'https://api.petfinder.com/v2/oauth2/token';
   fetch(apiTokenUrl, {
     method:'POST',
@@ -51,7 +86,7 @@ var getToken = function (zipcode) {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          getPetResults(data, zipcode);
+          getPetResults(data, zipcode, searchAge, searchSize, searchGender);
         });
       } else {
         alert('Unauthorized');
@@ -60,9 +95,9 @@ var getToken = function (zipcode) {
 
 };
 
-var getPetResults = function (results, zipcode){
+var getPetResults = function (results, zipcode, searchAge, searchSize, searchGender){
 
-var petFinderURL ='https://api.petfinder.com/v2/animals?type=dog&status=adoptable&age=senior&location='+ zipcode;
+var petFinderURL ='https://api.petfinder.com/v2/animals?type=dog&status=adoptable'+searchAge+searchSize+searchGender+'&location='+ zipcode + '&sort=-distance';
 var bearer = results.token_type + ' ' + results.access_token;
 
 fetch(petFinderURL,{ 
@@ -99,7 +134,7 @@ var showPetResults = function (results){
   var dogPhotoUrl = '';
   var orgUrl = results.animals[0].url;
   if (results.animals[petArrayPosition].photos.length === 0){
-    dogPhotoUrl = '';
+    dogPhotoUrl = 'assets/images/no-image.png';
   }
 
   else{
@@ -114,7 +149,8 @@ var showPetResults = function (results){
   dogGenderEl.textContent = 'Gender: ' + results.animals[petArrayPosition].gender;
   dogSizeEl.textContent = 'Size: ' + results.animals[petArrayPosition].size;
   orgUrlEl.setAttribute("href", orgUrl);
-  orgUrlEl.innerHTML = 'Visit the organization for this dog'
+  orgUrlEl.setAttribute("class", "");
+  orgUrlEl.innerHTML = '<button class="button is-warning">Visit the About page for this dog</button>';
 
   arrowHandler();
 
@@ -125,7 +161,6 @@ var showPetResults = function (results){
 // Dog API 
 
 var dogApi = function(currentBreed){
-
 // var currentBreed = data.animals[0].breeds.primary;
 var dogUrl = 'https://api.thedogapi.com/v1/breeds/search?q='+ currentBreed + '&api_key=4967806f-5944-4473-9348-b6101abfe209';
 var breedData = document.getElementById('breed-data');
@@ -133,19 +168,30 @@ var breedData = document.getElementById('breed-data');
 fetch(dogUrl)
 .then(function (response) {
   return response.json();
+
 })
 .then(function (data) {
-  console.log(data)
-  
+  if (data.length === 0) {
+    document.getElementById('dog-breed').textContent = 'No breed information found';
+    breedWeightEl.textContent = '';
+  breedUseEl.textContent = ''
+  breedAgeEl.textContent = '';
+  breedTempermentEl.textContent = '';
+    return;
+  }
+  console.log(data);
+  console.log(data[0].bred_for);
 
-  //var breedTemperment = document;
+  breedWeightEl.textContent = 'Weight range: ' + data[0].weight.imperial + 'lbs';
+  breedUseEl.textContent = 'Bred For: ' + data[0].bred_for;
+  breedAgeEl.textContent = 'Average Lifespan: ' + data[0].life_span;
+  breedTempermentEl.textContent = 'Temperament: ' + data[0].temperament;
 
-  dogWeightEl.textContent = 'Weight: ' + data[0].weight.imperial + 'lbs';
-
-    document.getElementById('dog-breed').textContent = data[0].name + '\'s';
+  document.getElementById('dog-breed').textContent = 'Information about ' + data[0].name + 's';
   
 });
 }
+
 
 
 //Display Dogs on left arrow clicks
@@ -169,14 +215,14 @@ var rightArrowHandler = function(){
   //Controls whether the arrows are shown
 var arrowHandler = function(){
 if (petArrayPosition > 0){
-  leftArrowEl.setAttribute("class", "show");
+  leftArrowEl.setAttribute("class", "show button is-warning");
 }
 else{
   leftArrowEl.setAttribute("class", "no-show");
 }
 
 if (petArrayPosition < petFinderResults.animals.length-1){
-  rightArrowEl.setAttribute("class", "show");
+  rightArrowEl.setAttribute("class", "show button is-warning");
 }
 else{
   rightArrowEl.setAttribute("class", "no-show");
