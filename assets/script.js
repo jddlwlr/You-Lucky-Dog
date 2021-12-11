@@ -150,7 +150,7 @@ var showPetResults = function (results){
   dogSizeEl.textContent = 'Size: ' + results.animals[petArrayPosition].size;
   orgUrlEl.setAttribute("href", orgUrl);
   orgUrlEl.setAttribute("class", "");
-  orgUrlEl.innerHTML = '<button class="button is-warning">Visit the About page for this dog</button>';
+  orgUrlEl.innerHTML = '<button class="button is-primary">Visit the About page for this dog</button>';
 
   arrowHandler();
 
