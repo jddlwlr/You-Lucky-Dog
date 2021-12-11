@@ -154,12 +154,6 @@ var showPetResults = function (results){
 // Dog API 
 
 var dogApi = function(currentBreed){
-
-    if (currentBreed == 'Mixed')
-
-      return; 
-
-    else {
 // var currentBreed = data.animals[0].breeds.primary;
 var dogUrl = 'https://api.thedogapi.com/v1/breeds/search?q='+ currentBreed + '&api_key=4967806f-5944-4473-9348-b6101abfe209';
 var breedData = document.getElementById('breed-data');
@@ -167,8 +161,17 @@ var breedData = document.getElementById('breed-data');
 fetch(dogUrl)
 .then(function (response) {
   return response.json();
+
 })
 .then(function (data) {
+  if (data.length === 0) {
+    document.getElementById('dog-breed').textContent = 'No breed information found';
+    breedWeightEl.textContent = '';
+  breedUseEl.textContent = ''
+  breedAgeEl.textContent = '';
+  breedTempermentEl.textContent = '';
+    return;
+  }
   console.log(data);
   console.log(data[0].bred_for);
 
@@ -176,14 +179,12 @@ fetch(dogUrl)
   breedUseEl.textContent = 'Bred For: ' + data[0].bred_for;
   breedAgeEl.textContent = 'Average Lifespan: ' + data[0].life_span;
   breedTempermentEl.textContent = 'Temperament: ' + data[0].temperament;
-  
-  if (currentBreed = '')
 
-    document.getElementById('dog-breed').textContent = 'Information about' + data[0].name + '\'s';
+  document.getElementById('dog-breed').textContent = 'Information about ' + data[0].name + 's';
   
 });
-  }
 }
+
 
 
 //Display Dogs on left arrow clicks
