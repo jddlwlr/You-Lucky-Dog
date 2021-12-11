@@ -7,11 +7,22 @@
 
 .container h2{
     font-size: 36px;
-    margin-top: 300px;
     margin-bottom: 25px;
 }
 
 #contactUs-Header h2 {
     font-size: 36px;
-    margin-top: 350px;
+    margin-top: 250px;
+}
+
+
+
+.breedInfo {
+    
+    visibility:unset;
+    
+}
+
+.petSlideshow {
+    visibility:initial;
 }
