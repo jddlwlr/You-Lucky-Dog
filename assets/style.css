@@ -1,3 +1,27 @@
+.title {
+    
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 50px;
+    
+}
+
+.phrase {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 23px;
+}
+
+/*#lucky {
+    width: 100%;
+    max-width: 900px;
+    align-items: center;
+}*/
+
+#AboutUs{
+    
+    font-family: 'Fuzzy Bubbles', cursive;
+    font-size: 20px;
+}
+
 .no-show{
     visibility:hidden;
     }
@@ -25,39 +49,10 @@
 
 .petSlideshow {
     visibility:initial;
+
 }
 
-#orgUrl{
+#org-Url{
     text-decoration:none;
 }
 
-.bulma-ltr-rtl-mixin {
-    background-color: lightgreen;
-    padding: 0.5em 1em;
-    border: 1px solid seagreen;
-    margin-right: -1px;
-  
-    &:first-child {
-      @include ltr {
-        border-bottom-left-radius: 0.5em;
-        border-top-left-radius: 0.5em;
-      }
-  
-      @include rtl {
-        border-bottom-right-radius: 0.5em;
-        border-top-right-radius: 0.5em;
-      }
-    }
-  
-    &:last-child {
-      @include ltr {
-        border-bottom-right-radius: 0.5em;
-        border-top-right-radius: 0.5em;
-      }
-  
-      @include rtl {
-        border-bottom-left-radius: 0.5em;
-        border-top-left-radius: 0.5em;
-      }
-    }
-  }

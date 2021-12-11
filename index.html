@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Shadows+Into+Light&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./assets/style.css" />
   <title>You Lucky Dog</title>
 </head>
@@ -21,11 +23,6 @@
         <div class="hero-head">
           <nav class="navbar">
             <div class="container">
-              <div class="navbar-brand">
-                <a class="navbar-item">
-                  <h1 class="title is-center">You Lucky Dog</h1>
-
-                </a>
                 <span class="navbar-burger" data-target="navbarMenuHeroA">
                   <span></span>
                   <span></span>
@@ -37,28 +34,31 @@
                   <a href="#" class="navbar-item">
                     Home
                   </a>
-                  <a href="#" class="navbar-item" id="AboutUs">
+                  <a href="#AboutUs" class="navbar-item">
                     About Us
                   </a>
-                  <a href="#" class="navbar-item" id="PetAdoption">
+                  <a href="#PetAdoption" class="navbar-item">
                     Pet Adoption
                   </a>
-                  <span class="navbar-item">
-                    <a class="button is-primary is-inverted" id="contactUs">
-                      <span>Contact Us</span>
-                    </a>
-                  </span>
+                  
                 </div>
               </div>
             </div>
           </nav>
         </div>
+        <div class="jumbotron jumbotron-fluid bg-dark text-light">
+          <div class="container text-center">
+            <h1 class="title has-text-centered">
+              You Lucky Dog !
+            </h1>
+            <img src="assets/images/luckyDog.jpg" id="lucky" alt="dogFamily">
+        </div>
 
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
           <div class="container has-text-centered">
-            <p class="title">
-              Let's find your pet!!
+            <p class="phrase">
+              Let's find your pet !!
             </p>
 
 
@@ -106,7 +106,7 @@
 
             <div class="columns is-0">
               <div class="column">
-                <div class="notification is-primary" id="breedContainer">
+                <div class="notification is-primary breedInfo" id="breedContainer">
                   <div id="pet-results">
                     <p><span id="this-dog-breed"></span></p>
                     <p><span id="dog-age"></span></p>
@@ -160,7 +160,10 @@
         <div class="container is-5 ">
           <h2 class="has-text-centered " id="aboutUs-header">About Us</h2>
           <div class="notification is-warning" id="AboutUs">
-            This is where all of the information about the organization will be typed.
+            <p>You Lucky Dog is a third party organization that gives dog lovers access to meet local dogs that are currently displaced and looking for a lovely home. 
+            It is our mission to find amazing families for our furry friends as well allow volunteers to foster a dog for a day. We have created a partnership with shelters
+            in order to display the available pets.</p>
+             
           </div>
         </div>
       
