@@ -10,7 +10,11 @@ var dogSizeEl = document.querySelector('#dog-size');
 var orgUrlEl = document.querySelector('#org-Url');
 var leftArrowEl = document.querySelector('#leftArrow');
 var rightArrowEl = document.querySelector('#rightArrow');
-var dogWeightEl = document.querySelector('#dog-weight');
+
+var breedWeightEl = document.querySelector('#breed-weight');
+var breedUseEl = document.querySelector('#breed-use');
+var breedAgeEl = document.querySelector('#breed-age');
+var breedTempermentEl = document.querySelector('#breed-temperment');
 
 //Additional variables
 var petFinderResults;
@@ -92,7 +96,7 @@ var showPetResults = function (results){
   var dogPhotoUrl = '';
   var orgUrl = results.animals[0].url;
   if (results.animals[petArrayPosition].photos.length === 0){
-    dogPhotoUrl = '';
+    dogPhotoUrl = 'assets/images/no-image.png';
   }
 
   else{
@@ -119,6 +123,11 @@ var showPetResults = function (results){
 
 var dogApi = function(currentBreed){
 
+    if (currentBreed == 'Mixed')
+
+      return; 
+
+    else {
 // var currentBreed = data.animals[0].breeds.primary;
 var dogUrl = 'https://api.thedogapi.com/v1/breeds/search?q='+ currentBreed + '&api_key=4967806f-5944-4473-9348-b6101abfe209';
 var breedData = document.getElementById('breed-data');
@@ -128,16 +137,20 @@ fetch(dogUrl)
   return response.json();
 })
 .then(function (data) {
-  console.log(data)
+  console.log(data);
+  console.log(data[0].bred_for);
+
+  breedWeightEl.textContent = 'Weight range: ' + data[0].weight.imperial + 'lbs';
+  breedUseEl.textContent = 'Bred For: ' + data[0].bred_for;
+  breedAgeEl.textContent = 'Average Lifespan: ' + data[0].life_span;
+  breedTempermentEl.textContent = 'Temperament: ' + data[0].temperament;
   
+  if (currentBreed = '')
 
-  //var breedTemperment = document;
-
-  dogWeightEl.textContent = 'Weight: ' + data[0].weight.imperial + 'lbs';
-
-    document.getElementById('dog-breed').textContent = data[0].name + '\'s';
+    document.getElementById('dog-breed').textContent = 'Information about' + data[0].name + '\'s';
   
 });
+  }
 }
 
 
