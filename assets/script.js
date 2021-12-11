@@ -1,6 +1,11 @@
 //Event Listener variables
 var searchFormEl = document.querySelector('#dog-form');
 var zipcodeInputEl = document.querySelector('#zipcode');
+var searchGenderEl = document.querySelector('#search-gender');
+var searchSizeEl = document.querySelector('#search-size');
+var searchAgeEl = document.querySelector('#search-age');
+
+
 var dogNameEl = document.querySelector('#dog-name');
 var dogPhotoEl = document.querySelector('#dog-photo');
 var dogAgeEl = document.querySelector('#dog-age');
@@ -21,9 +26,35 @@ var formSubmitHandler = function (event) {
   event.preventDefault();
 
   var zipcode = zipcodeInputEl.value.trim();
+  var searchAge = searchAgeEl.value.trim();
+  var searchGender = searchGenderEl.value.trim();
+  var searchSize = searchSizeEl.value.trim();
+
+  if(searchAge){
+    searchAge = "&age=" + searchAgeEl.value.trim();
+  }
+  else{
+searchAge='';
+  }
+
+  if(searchGender){
+    searchGender = "&gender=" + searchGenderEl.value.trim();
+  }
+  else{
+searchGender='';
+  }
+
+  if(searchSize){
+    searchSize = "&size=" + searchSizeEl.value.trim();
+  }
+  else{
+searchSize='';
+  }
+
+
 
   if (zipcode) {
-      getToken(zipcode);
+      getToken(zipcode,searchAge,searchSize,searchGender);
       zipcodeInputEl.value = '';
 
     
@@ -35,7 +66,7 @@ var formSubmitHandler = function (event) {
 
 //Create initial authorization call to PetFinder
 
-var getToken = function (zipcode) {
+var getToken = function (zipcode,searchAge,searchSize,searchGender) {
   var apiTokenUrl = 'https://api.petfinder.com/v2/oauth2/token';
   fetch(apiTokenUrl, {
     method:'POST',
@@ -48,7 +79,7 @@ var getToken = function (zipcode) {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          getPetResults(data, zipcode);
+          getPetResults(data, zipcode, searchAge, searchSize, searchGender);
         });
       } else {
         alert('Unauthorized');
@@ -57,9 +88,9 @@ var getToken = function (zipcode) {
 
 };
 
-var getPetResults = function (results, zipcode){
+var getPetResults = function (results, zipcode, searchAge, searchSize, searchGender){
 
-var petFinderURL ='https://api.petfinder.com/v2/animals?type=dog&status=adoptable&age=senior&location='+ zipcode;
+var petFinderURL ='https://api.petfinder.com/v2/animals?type=dog&status=adoptable'+searchAge+searchSize+searchGender+'&location='+ zipcode + '&sort=-distance';
 var bearer = results.token_type + ' ' + results.access_token;
 
 fetch(petFinderURL,{ 
@@ -107,7 +138,8 @@ var showPetResults = function (results){
   dogGenderEl.textContent = 'Gender: ' + results.animals[petArrayPosition].gender;
   dogSizeEl.textContent = 'Size: ' + results.animals[petArrayPosition].size;
   orgUrlEl.setAttribute("href", orgUrl);
-  orgUrlEl.innerHTML = 'Visit the organization for this dog'
+  orgUrlEl.setAttribute("class", "");
+  orgUrlEl.innerHTML = '<button class="button is-warning">Visit the About page for this dog</button>';
 
   arrowHandler();
 
@@ -162,14 +194,14 @@ var rightArrowHandler = function(){
   //Controls whether the arrows are shown
 var arrowHandler = function(){
 if (petArrayPosition > 0){
-  leftArrowEl.setAttribute("class", "show");
+  leftArrowEl.setAttribute("class", "show button is-warning");
 }
 else{
   leftArrowEl.setAttribute("class", "no-show");
 }
 
 if (petArrayPosition < petFinderResults.animals.length-1){
-  rightArrowEl.setAttribute("class", "show");
+  rightArrowEl.setAttribute("class", "show button is-warning");
 }
 else{
   rightArrowEl.setAttribute("class", "no-show");
