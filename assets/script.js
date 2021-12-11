@@ -11,6 +11,9 @@ var orgUrlEl = document.querySelector('#org-Url');
 var leftArrowEl = document.querySelector('#leftArrow');
 var rightArrowEl = document.querySelector('#rightArrow');
 var dogWeightEl = document.querySelector('#dog-weight');
+var breedContainerEl = document.querySelector('#breedContainer');
+var petSlideshowEl = document.querySelector('#petSlideshow');
+var breedContainer2El = document.querySelector('#breedContainer2');
 
 //Additional variables
 var petFinderResults;
@@ -85,6 +88,10 @@ fetch(petFinderURL,{
 //Function for displaying Dog information
 var showPetResults = function (results){
   console.log(results);
+
+  breedContainerEl.setAttribute("class", "notification is-warning");
+  petSlideshowEl.setAttribute("class", "notification is-warning");
+  breedContainer2El.setAttribute("class", "notification is-warning");
   if (results.length === 0) {
     dogNameEl.textContent = 'No dogs found';
     return;

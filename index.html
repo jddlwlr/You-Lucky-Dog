@@ -34,10 +34,10 @@
               </div>
               <div id="navbarMenuHeroA" class="navbar-menu">
                 <div class="navbar-end">
-                  <a href="#" class="navbar-item is-active">
+                  <a href="#" class="navbar-item">
                     Home
                   </a>
-                  <a  href="#" class="navbar-item" id="AboutUs">
+                  <a href="#" class="navbar-item" id="AboutUs">
                     About Us
                   </a>
                   <a href="#" class="navbar-item" id="PetAdoption">
@@ -68,41 +68,42 @@
               <form id="dog-form">
                 <input class="form-input is-warning" name="zipcode" id="zipcode" type="text" autofocus="true"
                   placeholder="Enter Zipcode" />
-            
-              <br>
-              <div class="select is-warning is-small" id="size">
-                <select placeholder="Size">
-                  <option id="small" value="small">Small</option>
-                  <option id="medium" value="medium">Medium</option>
-                  <option id="large" value="large">Large</option>
-                  <option id="x-large" value="x-large">X-Large</option>
-                </select>
-              </div>
 
-              <div class="select is-warning is-small">
-                <select placeholder="Gender">
-                  <option id="male" value="male">Male</option>
-                  <option id="female" value="female">Female</option>
-                </select>
-              </div>
-              <div class="select is-warning is-small">
-                <select placeholder="Age">
-                  <option>Baby</option>
-                  <option>Young</option>
-                  <option>Adult</option>
-                  <option>Senior</option>
-                </select>
-              </div>
-              <button class="button is-warning is-small" type="submit">Get Lucky Dog</button>
+                <br>
+                <div class="select is-warning is-small" id="size">
+                  <select placeholder="Size">
+                    <option id="small" value="small">Small</option>
+                    <option id="medium" value="medium">Medium</option>
+                    <option id="large" value="large">Large</option>
+                    <option id="x-large" value="x-large">X-Large</option>
+                  </select>
+                </div>
+
+                <div class="select is-warning is-small">
+                  <select placeholder="Gender">
+                    <option id="male" value="male">Male</option>
+                    <option id="female" value="female">Female</option>
+                  </select>
+                </div>
+                <div class="select is-warning is-small">
+                  <select placeholder="Age">
+                    <option>Baby</option>
+                    <option>Young</option>
+                    <option>Adult</option>
+                    <option>Senior</option>
+                  </select>
+                </div>
+                <button class="button is-warning is-small" type="submit">Get Lucky Dog</button>
               </form>
             </div>
             <br>
             <br>
             <br>
 
-            <div class="container is-warning">
-              <div class="columns is-0">
-                <div class="column">
+
+            <div class="columns is-0">
+              <div class="column">
+                <div class="notification is-primary" id="breedContainer">
                   <div id="pet-results">
                     <p><span id="this-dog-breed"></span></p>
                     <p><span id="dog-age"></span></p>
@@ -112,169 +113,175 @@
                   </div>
                 </div>
               </div>
-              <div class="column">
+            
+            <div class="column">
+              <div class="notification is-primary" id="petSlideshow" >
                 <div id="pet-results">
                   <h3><span id="dog-name"> </span></h3>
-                  <button id="leftArrow" class="no-show"><
-                    </button>
-                      <img id="dog-photo" class="no-show" src="" alt="Photo of Dog"></h2>
-                      <button id="rightArrow" class="no-show">></button>
+                  <button id="leftArrow" class="no-show">&#10094;</button>
+                  <img id="dog-photo" class="no-show" src="" alt="Photo of Dog"></h2>
+                  <button id="rightArrow" class="no-show">&#10095;</button>
+                  </button>
                 </div>
               </div>
-              <div class="column">
+            </div>
+            <div class="column">
+              <div class="notification is-primary" id="breedContainer2">
                 <div id="breed-data">
-                  <h3>Information about this breed: <span id="dog-breed"> </span></h3>
+                  <h3 class="no-show">Information about this breed: <span id="dog-breed"> </span></h3>
                   <p><span id="dog-weight"></span></p>
 
                 </div>
               </div>
             </div>
           </div>
-          <br>
-          <br>
+        </div>
+        <br>
+        <br>
 
-          <div class="container is-5 ">
-            <h2 class="has-text-centered " id="aboutUs-header">About Us</h2>
-            <div class="notification is-warning" id="AboutUs">
-              This is where all of the information about the organization will be typed.
+        <div class="container is-5 ">
+          <h2 class="has-text-centered " id="aboutUs-header">About Us</h2>
+          <div class="notification is-warning" id="AboutUs">
+            This is where all of the information about the organization will be typed.
+          </div>
+        </div>
+      
+
+        <br>
+        <br>
+        <div class="container" id="contactUs">
+          <h2 class="has-text-centered" id="contactUs-Header">Contact Us</h2>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">From</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input class="input" type="text" placeholder="Name">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                <input class="input is-success" type="email" placeholder="Email (eg. Jane.Doe@gmail.com)">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
             </div>
           </div>
+        </div>
 
-          <br>
-          <br>
-          <div class="container" id="contactUs">
-            <h2 class="has-text-centered" id="contactUs-Header">Contact Us</h2>
-          </div>
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">From</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control is-expanded has-icons-left">
-                  <input class="input" type="text" placeholder="Name">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-user"></i>
-                  </span>
+        <div class="field is-horizontal">
+          <div class="field-label"></div>
+          <div class="field-body">
+            <div class="field is-expanded">
+              <div class="field has-addons">
+                <p class="control">
+                  <a class="button is-static">
+                    +1
+                  </a>
+                </p>
+                <p class="control is-expanded">
+                  <input class="input" type="tel" placeholder="Your phone number">
                 </p>
               </div>
-              <div class="field">
-                <p class="control is-expanded has-icons-left has-icons-right">
-                  <input class="input is-success" type="email" placeholder="Email (eg. Jane.Doe@gmail.com)">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
+              <p class="help">Do not enter the first one</p>
             </div>
           </div>
+        </div>
 
-          <div class="field is-horizontal">
-            <div class="field-label"></div>
-            <div class="field-body">
-              <div class="field is-expanded">
-                <div class="field has-addons">
-                  <p class="control">
-                    <a class="button is-static">
-                      +1
-                    </a>
-                  </p>
-                  <p class="control is-expanded">
-                    <input class="input" type="tel" placeholder="Your phone number">
-                  </p>
-                </div>
-                <p class="help">Do not enter the first one</p>
-              </div>
-            </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Pet Interest</label>
           </div>
-
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Pet Interest</label>
-            </div>
-            <div class="field-body">
-              <div class="field is-narrow">
-                <div class="control">
-                  <div class="select is-fullwidth">
-                    <select>
-                      <option>Adopt a pet</option>
-                      <option>Foster a pet</option>
-                      <option>Volunteer a pet shelter</option>
-                    </select>
-                  </div>
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select>
+                    <option>Adopt a pet</option>
+                    <option>Foster a pet</option>
+                    <option>Volunteer a pet shelter</option>
+                  </select>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="field is-horizontal">
-            <div class="field-label">
-              <label class="label">Interested in a special needs animal?</label>
-            </div>
-            <div class="field-body">
-              <div class="field is-narrow">
-                <div class="control">
-                  <label class="radio">
-                    <input type="radio" name="member">
-                    Yes
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="member">
-                    No
-                  </label>
-                </div>
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Interested in a special needs animal?</label>
+          </div>
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+                <label class="radio">
+                  <input type="radio" name="interest">
+                  Yes
+                </label>
+                <label class="radio">
+                  <input type="radio" name="interest">
+                  No
+                </label>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Subject</label>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Subject</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input is-danger" type="text" placeholder="e.g. Partnership opportunity">
+              </div>
+              <p class="help is-danger">
+                This field is required
+              </p>
             </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <input class="input is-danger" type="text" placeholder="e.g. Partnership opportunity">
-                </div>
-                <p class="help is-danger">
-                  This field is required
-                </p>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Question</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Question</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
-                </div>
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <button class="button is-warning">
+                  Send message
+                </button>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="field is-horizontal">
-            <div class="field-label">
-              <!-- Left empty for spacing -->
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <button class="button is-warning">
-                    Send message
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!--  Hero footer: will stick at the bottom
+        <!--  Hero footer: will stick at the bottom
         <div class="hero-foot">
           <nav class="tabs">
             <div class="container">
