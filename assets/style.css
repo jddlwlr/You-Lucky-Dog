@@ -30,3 +30,34 @@
 #orgUrl{
     text-decoration:none;
 }
+
+.bulma-ltr-rtl-mixin {
+    background-color: lightgreen;
+    padding: 0.5em 1em;
+    border: 1px solid seagreen;
+    margin-right: -1px;
+  
+    &:first-child {
+      @include ltr {
+        border-bottom-left-radius: 0.5em;
+        border-top-left-radius: 0.5em;
+      }
+  
+      @include rtl {
+        border-bottom-right-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+      }
+    }
+  
+    &:last-child {
+      @include ltr {
+        border-bottom-right-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+      }
+  
+      @include rtl {
+        border-bottom-left-radius: 0.5em;
+        border-top-left-radius: 0.5em;
+      }
+    }
+  }
