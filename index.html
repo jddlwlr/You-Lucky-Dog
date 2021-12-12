@@ -14,9 +14,6 @@
 
 <body>
 
-  <header>
-
-    <main>
 
       <section class="hero is-primary is-medium">
         <!-- Hero head: will stick at the top -->
@@ -37,9 +34,6 @@
                   <a href="#AboutUs" class="navbar-item">
                     About Us
                   </a>
-                  <a href="#PetAdoption" class="navbar-item">
-                    Pet Adoption
-                  </a>
                   
                 </div>
               </div>
@@ -55,7 +49,7 @@
         </div>
 
         <!-- Hero content: will be in the middle -->
-        <div class="hero-body">
+        <div class="container is-5">
           <div class="container has-text-centered">
             <p class="phrase">
               Let's find your pet !!
@@ -105,24 +99,28 @@
 
 
             <div class="columns is-0">
-              <div class="column">
+              <div id="column1" class="column remove">
                 <div class="notification is-primary breedInfo" id="breedContainer">
                   <div id="pet-results">
+                    <p><h2><span id="about-this-dog"></span></p></h2>
                     <p><span id="this-dog-breed"></span></p>
                     <p><span id="dog-age"></span></p>
                     <p><span id="dog-gender"></span></p>
                     <p><span id="dog-size"></span></p>
-                    <p><button id="contact-btn" class="button is-primary no-show">Inquire about this dog</button></p>
+                    <p><span id="dog-description"></span></p>
+                    <br>
                     <p><a id="org-Url" href=""></a></p>
+                    <br>
+                    <p><button id="contact-btn" class="button is-primary no-show">Inquire about this dog</button></p>
                   </div>
                 </div>
               </div>
             
-            <div class="column">
+            <div id="column2" class="column remove">
               <div class="notification is-primary" id="petSlideshow" >
                 <div id="pet-results">
                 
-                  <h3><span id="dog-name"> </span></h3>
+                  <h2><span id="dog-name"> </span></h2>
                   <div class= "level">
                     <div class= level-left>
                       <div class= level-item>
@@ -141,10 +139,10 @@
                 </div>
               </div>
             </div>
-              <div class="column">
+              <div id="column3" class="column remove">
                 <div class="notification is-primary" id="breedContainer2">
                   <div id="breed-data">
-                    <h3><span id="dog-breed"> </span></h3>
+                    <h2><span id="dog-breed"> </span></h2>
                   <p><span id="breed-weight"></span></p>
                   <p><span id="breed-use"></span></p>
                   <p><span id="breed-age"></span></p>
@@ -220,145 +218,39 @@
         <!--- Contact Organization Modal-->
         <div id="contact-modal" class="modal">
           <div class="modal-background"></div>
-          <div class="modal-content">
-            <div class="card">
-              <div class="card-content">
-                <div class="content">
-                  <div class="container" id="contactUs">
-                    <h2 class="has-text-centered" id="contactUs-Header">Contact Us</h2>
-                  </div>
-                  <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                      <label class="label">From</label>
-                    </div>
-                    <div class="field-body">
-                      <div class="field">
-                        <p class="control is-expanded has-icons-left">
-                          <input class="input" type="text" placeholder="Name">
-                          <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
-                          </span>
-                        </p>
-                      </div>
-                      <div class="field">
-                        <p class="control is-expanded has-icons-left has-icons-right">
-                          <input class="input is-success" type="email" placeholder="Email (eg. Jane.Doe@gmail.com)">
-                          <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                          </span>
-                          <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-          
-                  <div class="field is-horizontal">
-                    <div class="field-label"></div>
-                    <div class="field-body">
-                      <div class="field is-expanded">
-                        <div class="field has-addons">
-                          <p class="control">
-                            <a class="button is-static">
-                              +1
-                            </a>
-                          </p>
-                          <p class="control is-expanded">
-                            <input class="input" type="tel" placeholder="Your phone number">
-                          </p>
-                        </div>
-                        <p class="help">Do not enter the first one</p>
-                      </div>
-                    </div>
-                  </div>
-          
-                  <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                      <label class="label">Pet Interest</label>
-                    </div>
-                    <div class="field-body">
-                      <div class="field is-narrow">
-                        <div class="control">
-                          <div class="select is-fullwidth">
-                            <select>
-                              <option>Adopt a pet</option>
-                              <option>Foster a pet</option>
-                              <option>Volunteer a pet shelter</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-          
-                  <div class="field is-horizontal">
-                    <div class="field-label">
-                      <label class="label">Interested in a special needs animal?</label>
-                    </div>
-                    <div class="field-body">
-                      <div class="field is-narrow">
-                        <div class="control">
-                          <label class="radio">
-                            <input type="radio" name="interest">
-                            Yes
-                          </label>
-                          <label class="radio">
-                            <input type="radio" name="interest">
-                            No
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-          
-                  <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                      <label class="label">Subject</label>
-                    </div>
-                    <div class="field-body">
-                      <div class="field">
-                        <div class="control">
-                          <input class="input is-danger" type="text" placeholder="e.g. Partnership opportunity">
-                        </div>
-                        <p class="help is-danger">
-                          This field is required
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-          
-                  <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                      <label class="label">Question</label>
-                    </div>
-                    <div class="field-body">
-                      <div class="field">
-                        <div class="control">
-                          <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-          
-                  <div class="field is-horizontal">
-                    <div class="field-label">
-                      <!-- Left empty for spacing -->
-                    </div>
-                    <div class="field-body">
-                      <div class="field">
-                        <div class="control">
-                          <button class="button is-warning">
-                            Send message
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="modal-content contactModal">
+            <div class="content">
+              <h3>Contact this Organization</h3>
+              
+              <div>
+                <p>
+                  <span id="contact-email"></span>
+                </p>
+              </div>
+
+              <div>
+                <p>
+                  <span id="subject-email"></span>
+                </p>
+              </div>
+              
+              <div class="field">
+                <label class="label">Message</label>
+                <div class="control">
+                  <textarea id="email-content" class="textarea" placeholder="Textarea"></textarea>
+                </div>
+              </div>
+              
+              
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-link"><a id="submit-email" href="">Submit</a></button>
+                </div>
+                <div class="control">
+                  <button id="contact-cancel" class="button is-link is-light">Cancel</button>
                 </div>
               </div>
             </div>
-
           </div>
           <button id="close-contact-modal" class="modal-close is-large" aria-label="close"></button>
         </div>
@@ -382,12 +274,7 @@
         </div>  -->
       </section>
 
-  </header>
 
-
-
-
-  </main>
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
