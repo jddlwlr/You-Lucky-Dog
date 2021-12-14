@@ -25,6 +25,7 @@
 .no-show{
     visibility:hidden;
     }
+
  .show{
     visibility:visible;
     }
@@ -40,6 +41,9 @@
 }
 
 
+#lucky{
+    max-width: 50%;
+}
 
 .breedInfo {
     
@@ -55,4 +59,25 @@
 #org-Url, #contact-org{
     text-decoration:none;
 }
+
+.contactModal{
+    background-color: rgb(207, 216, 217);
+    color:black;
+    padding: 20px;
+}
+
+.remove{
+    display:none;
+}
+
+#lucky{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+
+
 
