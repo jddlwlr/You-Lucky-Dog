@@ -137,63 +137,48 @@ body {
     max-width: 1000px;
     position: relative;
     margin: auto;
-    justify-content: center; 
-    align-content: center;  
+    justify-content: center;  
+    padding-bottom: 20px;
 
 
 
 }
 
 img {
-    vertical-align: middle;
-
+    vertical-align: bottom;
+    
 }
 
 /*positions the arrows center*/
 
 #leftArrow {
     cursor: pointer;
-    position: absolute;
-    height: 80%;
-    width: 10%;
-    margin-bottom: 20px;
-    margin-right: 5px;
-    margin-left: 40px;
+    position: relative;
+    width: 100%;
     color: black;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.4s ease;
+    transition: 0.2s ease;
     user-select: none;
-    padding: none;
+    border-radius: none;
+    
   }
 
   #rightArrow {
     cursor: pointer;
-    position: absolute;
-    height: 80%;
-    width: 10%;
-    margin-bottom: 20px;
-    margin-left: 2px;
-    margin-right: 10px;
+    position: relative;
+    width: 100%;
     color: black;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.4s ease;
+    transition: 0.2s ease;
     user-select: none;
-    padding: none;
+    border-radius: none;
   }
   
   
-  Position the "next button" to the right */
-  /* .rightArrow {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a grey background color */
   #rightArrow:hover {
     color: #f1f1f1;
-    
   }
 
   #leftArrow:hover {
