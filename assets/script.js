@@ -4,7 +4,8 @@ var zipcodeInputEl = document.querySelector('#zipcode');
 var searchGenderEl = document.querySelector('#search-gender');
 var searchSizeEl = document.querySelector('#search-size');
 var searchAgeEl = document.querySelector('#search-age');
-
+var aboutThisDogEl = document.querySelector('#about-this-dog');
+var dogDescriptionEl = document.querySelector('#dog-description');
 
 var dogNameEl = document.querySelector('#dog-name');
 var dogPhotoEl = document.querySelector('#dog-photo');
@@ -22,18 +23,31 @@ var alertModalEl = document.querySelector('#alert-modal');
 var closeZipcodeModalEl = document.querySelector('#close-zipcode-modal');
 var zipcodeModalEl = document.querySelector('#zipcode-modal');
 
+//Contact modal
+var contactBtnEl = document.querySelector('#contact-btn');
+var contactModalEl = document.querySelector('#contact-modal');
+var closeContactModalEl = document.querySelector('#close-contact-modal');
+var cancelContactEl = document.querySelector('#contact-cancel');
+var submitEmailEl = document.querySelector('#submit-email');
+var contactEmailEl = document.querySelector('#contact-email');
+var subjectEmailEl = document.querySelector('#subject-email');
+var emailContentEl = document.querySelector('#email-content');
+
+
 
 var dogAgeEl = document.querySelector('#dog-age');
 var thisDogBreedEl = document.querySelector('#this-dog-breed');
 var dogGenderEl = document.querySelector('#dog-gender');
 var dogSizeEl = document.querySelector('#dog-size');
-var contactBtnEl = document.querySelector('#contact-btn');
 var orgUrlEl = document.querySelector('#org-Url');
 var leftArrowEl = document.querySelector('#leftArrow');
 var rightArrowEl = document.querySelector('#rightArrow');
 var breedContainerEl = document.querySelector('#breedContainer');
 var petSlideshowEl = document.querySelector('#petSlideshow');
 var breedContainer2El = document.querySelector('#breedContainer2');
+var column1El = document.querySelector('#column1');
+var column2El = document.querySelector('#column2');
+var column3El = document.querySelector('#column3');
 
 var breedWeightEl = document.querySelector('#breed-weight');
 var breedUseEl = document.querySelector('#breed-use');
@@ -48,6 +62,9 @@ var petArrayPosition = 0;
 var dogPhotoUrl = '';
 var dogPhotoLargeUrl = ''
 var contactEmail='';
+var emailSubject='';
+var emailUrl='';
+var emailContent='';
 
 //Submit Form event handler
 var formSubmitHandler = function (event) {
@@ -148,6 +165,12 @@ var showPetResults = function (results){
   breedContainerEl.setAttribute("class", "notification is-warning");
   petSlideshowEl.setAttribute("class", "notification is-warning");
   breedContainer2El.setAttribute("class", "notification is-warning");
+
+  column1El.setAttribute("class", "column");
+  column2El.setAttribute("class", "column");
+  column3El.setAttribute("class", "column");
+
+
   if (results.length === 0) {
     dogNameEl.textContent = 'No dogs found';
     return;
@@ -155,8 +178,10 @@ var showPetResults = function (results){
 
   var orgUrl = results.animals[petArrayPosition].url;
   contactEmail = results.animals[petArrayPosition].contact.email;
+  emailSubject = 'Inquiry for ' + results.animals[petArrayPosition].name + " ID: " + results.animals[petArrayPosition].id;
 
-  if(contactEmail){
+
+  if(results.animals[petArrayPosition].contact.email){
     contactBtnEl.setAttribute("class", "button is-primary show");
 
   }
@@ -174,7 +199,7 @@ var showPetResults = function (results){
     dogPhotoUrl = results.animals[petArrayPosition].photos[0].medium;
     dogPhotoLargeUrl = results.animals[petArrayPosition].photos[0].large;
   }
-
+  aboutThisDogEl.textContent ='About ' + results.animals[petArrayPosition].name;
   dogNameEl.textContent = 'Meet ' + results.animals[petArrayPosition].name + "!";
   dogPhotoEl.setAttribute("src",dogPhotoUrl);
   dogPhotoEl.setAttribute("class", "show");
@@ -182,12 +207,17 @@ var showPetResults = function (results){
   dogAgeEl.textContent = 'Age: ' + results.animals[petArrayPosition].age;
   dogGenderEl.textContent = 'Gender: ' + results.animals[petArrayPosition].gender;
   dogSizeEl.textContent = 'Size: ' + results.animals[petArrayPosition].size;
-
+  dogDescriptionEl.textContent = 'Description: ' + results.animals[petArrayPosition].description;
 
 
   orgUrlEl.setAttribute("href", orgUrl);
   orgUrlEl.setAttribute("class", "");
   orgUrlEl.innerHTML = '<button class="button is-primary"> About ' + results.animals[petArrayPosition].name + ' ! </button>';
+
+
+  contactEmailEl.textContent = 'Email: ' + contactEmail;
+  subjectEmailEl.textContent = 'Subject: ' + emailSubject;
+  submitEmailEl.setAttribute("href", emailUrl);
 
   arrowHandler();
 
@@ -286,6 +316,9 @@ var closeModalHandler = function(){
   if(zipcodeModalEl.getClass = 'modal is-active'){
     zipcodeModalEl.setAttribute("class","modal")
   }
+  if(contactModalEl.getClass = 'modal is-active'){
+    contactModalEl.setAttribute("class","modal")
+  }
 
 
 else{return;}
@@ -303,6 +336,21 @@ var zipcodeModalHandler = function(){
 
 }
 
+//Contact modals
+var contactModalHandler = function(){
+  contactModalEl.setAttribute("class","modal is-active")
+
+
+}
+//email content 
+var emailContentHandler = function(){
+
+ emailContent = emailContentEl.value;
+  emailUrl = 'mailto:'+contactEmail+ '?subject=' + emailSubject + '&body='+emailContent;
+  submitEmailEl.setAttribute("href", emailUrl);
+
+}
+
 //Button and Form handlers
 searchFormEl.addEventListener('submit', formSubmitHandler);
 leftArrowEl.addEventListener('click', leftArrowHandler);
@@ -311,6 +359,10 @@ dogPhotoEl.addEventListener('click', imageHandler);
 closeModalEl.addEventListener('click', closeModalHandler);
 closeAlertModalEl.addEventListener('click', closeModalHandler);
 closeZipcodeModalEl.addEventListener('click', closeModalHandler);
+contactBtnEl.addEventListener('click', contactModalHandler);
+closeContactModalEl.addEventListener('click', closeModalHandler);
+cancelContactEl.addEventListener('click', closeModalHandler);
+emailContentEl.addEventListener('input', emailContentHandler);
 
 
 //dog family slide show
@@ -355,3 +407,4 @@ function topFunction() {
       menu.classList.toggle('is-active');
   });
 })();
+

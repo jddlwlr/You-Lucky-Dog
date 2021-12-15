@@ -16,420 +16,314 @@
 
 <body>
 
-  <header>
 
-    <main>
+  <section class="hero is-primary is-medium">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+      <div id="app">
 
-      <section class="hero is-primary is-medium">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-          <div id="app">
-
-            <!--Nav Bar with burger functionality-->
-       <nav class="navbar">
-            <div class="container">
-              <span class="navbar-burger is-mobile is-desktop is-tablet" data-target="navbarMenuHeroA">
-                <span></span>
-                <span></span>
-              </span>
-            </div> 
-            <div id="navbarMenuHeroA" class="navbar-menu">
-              <div class="navbar-end">
-                <a href="#" class="navbar-item">
-                  Home
-                </a>
-                <a href="#aboutUs-header" class="navbar-item">
-                  About Us
-                </a>
-              </div>
-            </div>
-        </div>
-        </nav>
-        </div>
-        </div>
-        <div class="jumbotron text-light">
-          <div class="container text-center">
-            <h1 class="title has-text-centered">
-              You Lucky Dog !
-            </h1>
-            <br>
-            <div class="columns is-flex is-centered">
-              <figure class="image">
-                <img src="assets/images/luckyDog.jpg" id="lucky" alt="Loving dog family">
-              </figure>
-            </div>
-
-
-
+        <!--Nav Bar with burger functionality-->
+        <nav class="navbar">
+          <div class="container">
+            <span class="navbar-burger is-mobile is-desktop is-tablet" data-target="navbarMenuHeroA">
+              <span></span>
+              <span></span>
+            </span>
           </div>
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <a href="#" class="navbar-item">
+                Home
+              </a>
+              <a href="#aboutUs-header" class="navbar-item">
+                About Us
+              </a>
+            </div>
+          </div>
+      </div>
+      </nav>
+    </div>
+    </div>
+    <div class="jumbotron text-light">
+      <div class="container text-center">
+        <h1 class="title has-text-centered">
+          You Lucky Dog !
+        </h1>
+        <br>
+        <div class="columns is-flex is-centered">
+          <figure class="image">
+            <img src="assets/images/luckyDog.jpg" id="lucky" alt="Loving dog family">
+          </figure>
+        </div>
 
 
 
-          <!-- Hero content: will be in the middle -->
-          <div class="hero-body">
-            <div class="container has-text-centered">
-              <p class="phrase">
-                Let's find your pet today !!
-              </p>
 
-              <br>
-              <div id="search-container">
-                <h3>Search Available Dogs</h3>
 
-                <form id="dog-form">
-                  <input class="form-input is-warning" name="zipcode" id="zipcode" type="text" autofocus="true"
-                    placeholder="Enter Zipcode" />
 
-                  <br>
-                  <br>
-                  <div class="select is-warning is-small">
-                    <select id="search-size" placeholder="Size">
-                      <option value="" disabled selected>Size</option>
-                      <option id="small" value="small">Small</option>
-                      <option id="medium" value="medium">Medium</option>
-                      <option id="large" value="large">Large</option>
-                      <option id="x-large" value="xlarge">X-Large</option>
-                    </select>
-                  </div>
 
-                  <div class="select is-warning is-small">
-                    <select id="search-gender">
-                      <option value="" disabled selected>Gender</option>
-                      <option id="male" value="male">Male</option>
-                      <option id="female" value="female">Female</option>
-                    </select>
-                  </div>
-                  <div class="select is-warning is-small">
-                    <select id="search-age" placeholder="Age">
-                      <option value="" disabled selected>Age</option>
-                      <option>Baby</option>
-                      <option>Young</option>
-                      <option>Adult</option>
-                      <option>Senior</option>
-                    </select>
-                  </div>
-                  <button class="button is-warning is-small is-rounded" type="submit" id="lucky-btn"> Fetch Lucky
-                    Dog</button>
-                </form>
-              </div>
-              <br>
-              <br>
-              <br>
+        <!-- Hero content: will be in the middle -->
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <p class="phrase">
+              Let's find your pet today !!
+            </p>
 
-               <!--First Column-->
-              <div class="columns is-mobile is-desktop is-multiline is-centered">
-                <div class="column">
-                  <div class="notification is-primary breedInfo" id="breedContainer">
-                    <div id="pet-results">
-                      <p><span id="this-dog-breed"></span></p>
-                      <p><span id="dog-age"></span></p>
-                      <p><span id="dog-gender"></span></p>
-                      <p><span id="dog-size"></span></p>
-                      <p><button id="contact-btn" class="button is-primary no-show">Inquire about this dog</button></p>
-                      <p><a class="aboutDog" id="org-Url" href=""></a></p>
-                    </div>
-                  </div>
+            <br>
+            <div id="search-container">
+              <h3>Search Available Dogs</h3>
+
+              <form id="dog-form">
+                <input class="form-input is-warning" name="zipcode" id="zipcode" type="text" autofocus="true"
+                  placeholder="Enter Zipcode" />
+
+                <br>
+                <br>
+                <div class="select is-warning is-small">
+                  <select id="search-size" placeholder="Size">
+                    <option value="" disabled selected>Size</option>
+                    <option id="small" value="small">Small</option>
+                    <option id="medium" value="medium">Medium</option>
+                    <option id="large" value="large">Large</option>
+                    <option id="x-large" value="xlarge">X-Large</option>
+                  </select>
                 </div>
 
-                <!--Second Column-->
-                <div class="column">
-                  <div class="notification is-primary slideshow" id="petSlideshow">
-                    <div id="pet-photo">
-                      <h3><span id="dog-name"> </span></h3>
-                      <div class="level">
-                        <div class=level-left>
-                          <div class=level-item>
-                            <button id="leftArrow" class="no-show leftArrow">&#10094;</button>
-                          </div>
+                <div class="select is-warning is-small">
+                  <select id="search-gender">
+                    <option value="" disabled selected>Gender</option>
+                    <option id="male" value="male">Male</option>
+                    <option id="female" value="female">Female</option>
+                  </select>
+                </div>
+                <div class="select is-warning is-small">
+                  <select id="search-age" placeholder="Age">
+                    <option value="" disabled selected>Age</option>
+                    <option>Baby</option>
+                    <option>Young</option>
+                    <option>Adult</option>
+                    <option>Senior</option>
+                  </select>
+                </div>
+                <button class="button is-warning is-small is-rounded" type="submit" id="lucky-btn"> Fetch Lucky
+                  Dog</button>
+              </form>
+            </div>
+            <br>
+            <br>
+            <br>
+
+
+            <!--First Column-->
+            <div class="columns is-mobile is-desktop is-multiline is-centered">
+              <div id="column1" class="column remove">
+                <div class="notification is-primary breedInfo" id="breedContainer">
+                  <div id="pet-results">
+                    <p>
+                    <h2><span id="about-this-dog"></span></p>
+                    </h2>
+                    <p><span id="this-dog-breed"></span></p>
+                    <p><span id="dog-age"></span></p>
+                    <p><span id="dog-gender"></span></p>
+                    <p><span id="dog-size"></span></p>
+                    <p><span id="dog-description"></span></p>
+                    <br>
+                    <p><a id="org-Url" href=""></a></p>
+                    <br>
+                    <p><button id="contact-btn" class="button is-primary no-show">Inquire about this dog</button></p>
+                  </div>
+                </div>
+              </div>
+
+
+              <!--Second Column-->
+              <div id="column2" class="column remove">
+                <div class="notification is-primary slideshow" id="petSlideshow">
+                  <div id="pet-photo">
+                    <h3><span id="dog-name"> </span></h3>
+                    <div class="level">
+                      <div class=level-left>
+                        <div class=level-item>
+                          <button id="leftArrow" class="no-show leftArrow">&#10094;</button>
                         </div>
-                        <div class=level-right>
-                          <div class=level-item>
-                            <img id="dog-photo" class="no-show" src="" alt="Photo of Dog"></img>
-                          </div>
-                          <div class=level-item>
-                            <button id="rightArrow" class="no-show rightArrow">&#10095;</button>
-                          </div>
+                      </div>
+                      <div class=level-right>
+                        <div class=level-item>
+                          <img id="dog-photo" class="no-show" src="" alt="Photo of Dog"></img>
+                        </div>
+                        <div class=level-item>
+                          <button id="rightArrow" class="no-show rightArrow">&#10095;</button>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                 <!--Third Column-->
-                <div class="column">
-                  <div class="notification is-primary" id="breedContainer2">
-                    <div id="breed-data">
-                      <h3><span id="dog-breed"> </span></h3>
-                      <p><span id="breed-weight"></span></p>
-                      <p><span id="breed-use"></span></p>
-                      <p><span id="breed-age"></span></p>
-                      <p><span id="breed-temperment"></span></p>
-                    </div>
+              </div>
+              <!--Third Column-->
+              <div id="column3" class="column remove">
+                <div class="notification is-primary" id="breedContainer2">
+                  <div id="breed-data">
+                    <h3><span id="dog-breed"> </span></h3>
+                    <p><span id="breed-weight"></span></p>
+                    <p><span id="breed-use"></span></p>
+                    <p><span id="breed-age"></span></p>
+                    <p><span id="breed-temperment"></span></p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!--Automated Slideshow-->
+        <!--Automated Slideshow-->
 
-          <div class="column is-half is-offset-one-quarter is-mobile is-desktop" id="dogFamilies">
-            <div>
-              <img src="assets/images/luckyDog2.jpg" alt="A Day at the park">
-            </div>
-            <div>
-              <img src="assets/images/holidayDog2.jpg" alt="It's a dog's Christmas!">
-            </div>
-            <div>
-              <img src="assets/images/dog1.jpg" alt="Doggy loves baby">
-            </div>
-            <div>
-              <img src="assets/images/dogs.jpg" alt="Mom & pups">
-            </div>
-            <div>
-              <img src="assets/images/holidayDog.jpg" alt="Santa's helper!">
-            </div>
+        <div class="column is-half is-offset-one-quarter is-mobile is-desktop" id="dogFamilies">
+          <div>
+            <img src="assets/images/luckyDog2.jpg" alt="A Day at the park">
           </div>
+          <div>
+            <img src="assets/images/holidayDog2.jpg" alt="It's a dog's Christmas!">
+          </div>
+          <div>
+            <img src="assets/images/dog1.jpg" alt="Doggy loves baby">
+          </div>
+          <div>
+            <img src="assets/images/dogs.jpg" alt="Mom & pups">
+          </div>
+          <div>
+            <img src="assets/images/holidayDog.jpg" alt="Santa's helper!">
+          </div>
+        </div>
 
 
 
-          <h2 class="has-text-centered " id="aboutUs-header">About Us</h2>
+        <h2 class="has-text-centered " id="aboutUs-header">About Us</h2>
 
-          <!--Full page background image-->
-          <div class="hero is-fullheight has-background">
-            <img alt="Dog Family" class="hero-background is-transparent" src="assets/images/luckyDog.jpg" />
+        <!--Full page background image-->
+        <div class="hero is-fullheight has-background">
+          <img alt="Dog Family" class="hero-background is-transparent" src="assets/images/luckyDog.jpg" />
 
 
 
-            <!--About Us section-->
-            <section class="section aboutUs is-small is-half ">
+          <!--About Us section-->
+          <section class="section aboutUs is-small is-half ">
 
-              <div class="column is-half is-offset-one-quarter is-mobile is-desktop">
-                <div class="notification is-warning" id="AboutUs">
-                  <p>You Lucky Dog is a third party organization that gives dog lovers access to meet local dogs that
-                    are currently displaced and looking for a lovely home.
-                    It is our mission to find amazing families for our furry friends as well as allow volunteers to
-                    foster a dog for a day. We have created a partnership with shelters
-                    near and far in order to display the available pets for adoption.</p>
+            <div class="column is-half is-offset-one-quarter is-mobile is-desktop">
+              <div class="notification is-warning" id="AboutUs">
+                <p>You Lucky Dog is a third party organization that gives dog lovers access to meet local dogs that
+                  are currently displaced and looking for a lovely home.
+                  It is our mission to find amazing families for our furry friends as well as allow volunteers to
+                  foster a dog for a day. We have created a partnership with shelters
+                  near and far in order to display the available pets for adoption.</p>
+              </div>
+            </div>
+          </section>
+
+
+        </div>
+
+        <!--- Photo Modal-->
+        <div id="photo-modal-container" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <p class="image is-4by3">
+              <img id="modal-photo" src="" alt="Dog Photo">
+            </p>
+          </div>
+          <button id="close-modal" class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+        <!--- API Error Alert Modal-->
+        <div id="alert-modal" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <div class="card">
+              <div class="card-content">
+                <div class="content">
+                  <h3 class="has-text-centered">Oops!</h3>
+                  <p style="text-align:center">There was an error fetching the requested data.</p>
                 </div>
               </div>
-            </section>
+            </div>
+
+          </div>
+          <button id="close-alert-modal" class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+        <!--- Zip Code Error Alert Modal-->
+        <div id="zipcode-modal" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <div class="card">
+              <div class="card-content">
+                <div class="content">
+                  <h3 class="has-text-centered">Oops!</h3>
+                  <p style="text-align:center">Please enter a zipcode.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button id="close-zipcode-modal" class="modal-close is-large" aria-label="close"></button>
+        </div>
 
 
 
+        <!--- Contact Organization Modal-->
+        <div id="contact-modal" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content contactModal">
+            <div class="content">
+              <h3>Contact this Organization</h3>
 
-            <!--- Photo Modal-->
-            <div id="photo-modal-container" class="modal">
-              <div class="modal-background"></div>
-              <div class="modal-content">
-                <p class="image is-4by3">
-                  <img id="modal-photo" src="" alt="Dog Photo">
+              <div>
+                <p>
+                  <span id="contact-email"></span>
                 </p>
               </div>
-              <button id="close-modal" class="modal-close is-large" aria-label="close"></button>
-            </div>
 
-            <!--- API Error Alert Modal-->
-            <div id="alert-modal" class="modal">
-              <div class="modal-background"></div>
-              <div class="modal-content">
-                <div class="card">
-                  <div class="card-content">
-                    <div class="content">
-                      <h3 class="has-text-centered">Oops!</h3>
-                      <p style="text-align:center">There was an error fetching the requested data.</p>
-                    </div>
-                  </div>
+              <div>
+                <p>
+                  <span id="subject-email"></span>
+                </p>
+              </div>
+
+              <div class="field">
+                <label class="label">Message</label>
+                <div class="control">
+                  <textarea id="email-content" class="textarea" placeholder="Textarea"></textarea>
                 </div>
-
               </div>
-              <button id="close-alert-modal" class="modal-close is-large" aria-label="close"></button>
-            </div>
 
-            <!--- Zip Code Error Alert Modal-->
-            <div id="zipcode-modal" class="modal">
-              <div class="modal-background"></div>
-              <div class="modal-content">
-                <div class="card">
-                  <div class="card-content">
-                    <div class="content">
-                      <h3 class="has-text-centered">Oops!</h3>
-                      <p style="text-align:center">Please enter a zipcode.</p>
-                    </div>
-                  </div>
+
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-link"><a id="submit-email" href="">Submit</a></button>
                 </div>
-
-              </div>
-              <button id="close-zipcode-modal" class="modal-close is-large" aria-label="close"></button>
-            </div>
-
-            <!--- Contact Organization Modal-->
-            <div id="contact-modal" class="modal">
-              <div class="modal-background"></div>
-              <div class="modal-content">
-                <div class="card">
-                  <div class="card-content">
-                    <div class="content">
-                      <div class="container" id="contactUs">
-                        <h2 class="has-text-centered" id="contactUs-Header">Contact Us</h2>
-                      </div>
-                      <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                          <label class="label">From</label>
-                        </div>
-                        <div class="field-body">
-                          <div class="field">
-                            <p class="control is-expanded has-icons-left">
-                              <input class="input" type="text" placeholder="Name">
-                              <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                              </span>
-                            </p>
-                          </div>
-                          <div class="field">
-                            <p class="control is-expanded has-icons-left has-icons-right">
-                              <input class="input is-success" type="email" placeholder="Email (eg. Jane.Doe@gmail.com)">
-                              <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                              </span>
-                              <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                              </span>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="field is-horizontal">
-                        <div class="field-label"></div>
-                        <div class="field-body">
-                          <div class="field is-expanded">
-                            <div class="field has-addons">
-                              <p class="control">
-                                <a class="button is-static">
-                                  +1
-                                </a>
-                              </p>
-                              <p class="control is-expanded">
-                                <input class="input" type="tel" placeholder="Your phone number">
-                              </p>
-                            </div>
-                            <p class="help">Do not enter the first one</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                          <label class="label">Pet Interest</label>
-                        </div>
-                        <div class="field-body">
-                          <div class="field is-narrow">
-                            <div class="control">
-                              <div class="select is-fullwidth">
-                                <select>
-                                  <option>Adopt a pet</option>
-                                  <option>Foster a pet</option>
-                                  <option>Volunteer at pet shelter</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="field is-horizontal">
-                        <div class="field-label">
-                          <label class="label">Interested in a special needs animal?</label>
-                        </div>
-                        <div class="field-body">
-                          <div class="field is-narrow">
-                            <div class="control">
-                              <label class="radio">
-                                <input type="radio" name="interest">
-                                Yes
-                              </label>
-                              <label class="radio">
-                                <input type="radio" name="interest">
-                                No
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                          <label class="label">Subject</label>
-                        </div>
-                        <div class="field-body">
-                          <div class="field">
-                            <div class="control">
-                              <input class="input is-danger" type="text" placeholder="e.g. Partnership opportunity">
-                            </div>
-                            <p class="help is-danger">
-                              This field is required
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                          <label class="label">Question</label>
-                        </div>
-                        <div class="field-body">
-                          <div class="field">
-                            <div class="control">
-                              <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="field is-horizontal">
-                        <div class="field-label">
-                          <!-- Left empty for spacing -->
-                        </div>
-                        <div class="field-body">
-                          <div class="field">
-                            <div class="control">
-                              <button class="button is-warning">
-                                Send message
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="control">
+                  <button id="contact-cancel" class="button is-link is-light">Cancel</button>
                 </div>
-
               </div>
-              <button id="close-contact-modal" class="modal-close is-large" aria-label="close"></button>
             </div>
+          </div>
+          <button id="close-contact-modal" class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+        <button onclick="topFunction()" class="is-small" id="topBtn" title="Go to top">
+          <img src="assets/images/top.png" class="top">
+        </button>
+
+        <div class="hero-foot">
+          <div class="container has-text-centered">
+            <p>Created and Developed by: Melissa, Jesse & Javis</p>
+
+          </div>
+
+        </div>
+  </section>
+  </div>
 
 
-            <button onclick="topFunction()" class="is-small" id="topBtn" title="Go to top">
-              <img src="assets/images/top.png" class="top">
-            </button>
-
-            <div class="hero-foot">
-              <div class="container has-text-centered">
-                <p>Created and Developed by: Melissa, Jesse & Javis</p>
-
-              </div>
-
-            </div>
-      </section>
-      </div>
-
-  </header>
-
-
-
-
-  </main>
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
