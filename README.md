@@ -28,26 +28,26 @@ specifically highlights dogs with special needs, older dogs and dogs which findi
 
 - The user will browse to the landing page and will be invited with the title of the page, active navigation links and a picture of a lovely pet family.
 
-![YouLuckyDog](assets/images/homepage.jpg)
+![YouLuckyDog](assets/images/homepage.JPG)
 
 - As the user scrolls down, there is an input field for the user to type in a valid zipcode. The user is also given an option to choose a size, age or gender of the desired pet but a selection does not have to be made. Should the user give an invalid zipcode, a modal will appear advising that the zipcode is invalid. If the user fails to enter a zipcode at all, the user will be advised to enter in a zipcode. 
 
-![YouLuckyDog](assets/images/search.jpg)
-![YouLuckyDog](assets/images/invalid.jpg)
-![YouLuckyDog](assets/images/zipcode.jpg)
-![YouLuckyDog](assets/images/search-criteria.jpg)
+![YouLuckyDog](assets/images/search.JPG)
+![YouLuckyDog](assets/images/invalid.JPG)
+![YouLuckyDog](assets/images/zipcode.JPG)
+![YouLuckyDog](assets/images/search-criteria.JPG)
 
 - Once the user has entered a valid zipcode and made any desired selections, the results will populate for those criteria and the user is able to scroll through the results where information such as breed, gender, age, name and other detailed information is displayed. 
 
-![YouLuckyDog](assets/images/search-results.jpg)
+![YouLuckyDog](assets/images/search-results.JPG)
 
 - If the user finds any dogs that he/she would like to add to his/her favorites list, the user will have the ability to click on the heart icon to add that pet to a favorites list. Once on the favorites list, the dog's name and picture will display as well as a link to the dog profile page. Should a user have the desire to remove a dog as a favorite, then he/she has the ability to delete that particular dog from the favorite list. 
 
-![YouLuckyDog](assets/images/saved-favorites.jpg)
+![YouLuckyDog](assets/images/saved-favorites.JPG)
 
 - In the event that the user will like to learn more information about the You Lucky Dog organization, there is an about us section below the results on the main landing page. 
 
-![YouLuckyDog](assets/images/aboutUs.jpg)
+![YouLuckyDog](assets/images/aboutUs.JPG)
 
 
 ## Features
