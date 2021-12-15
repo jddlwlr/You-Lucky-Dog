@@ -33,7 +33,9 @@ var contactEmailEl = document.querySelector('#contact-email');
 var subjectEmailEl = document.querySelector('#subject-email');
 var emailContentEl = document.querySelector('#email-content');
 
-
+//Favorites event listeners and variables
+var favoriteBtnEl = document.querySelector('#favorite-btn');
+favorites= [];
 
 var dogAgeEl = document.querySelector('#dog-age');
 var thisDogBreedEl = document.querySelector('#this-dog-breed');
@@ -65,6 +67,7 @@ var contactEmail='';
 var emailSubject='';
 var emailUrl='';
 var emailContent='';
+var orgUrl='';
 
 //Submit Form event handler
 var formSubmitHandler = function (event) {
@@ -176,7 +179,7 @@ var showPetResults = function (results){
     return;
   }
 
-  var orgUrl = results.animals[petArrayPosition].url;
+  orgUrl = results.animals[petArrayPosition].url;
   contactEmail = results.animals[petArrayPosition].contact.email;
   emailSubject = 'Inquiry for ' + results.animals[petArrayPosition].name + " ID: " + results.animals[petArrayPosition].id;
 
@@ -212,7 +215,8 @@ var showPetResults = function (results){
 
   orgUrlEl.setAttribute("href", orgUrl);
   orgUrlEl.setAttribute("class", "");
-  orgUrlEl.innerHTML = '<button class="button is-primary"> About ' + results.animals[petArrayPosition].name + ' ! </button>';
+  orgUrlEl.innerHTML = '<button class="button is-primary"> Profile page for ' + results.animals[petArrayPosition].name + '! </button>';
+  contactBtnEl.innerHTML = 'Inquire about '+ results.animals[petArrayPosition].name + '!';
 
 
   contactEmailEl.textContent = 'Email: ' + contactEmail;
@@ -351,18 +355,7 @@ var emailContentHandler = function(){
 
 }
 
-//Button and Form handlers
-searchFormEl.addEventListener('submit', formSubmitHandler);
-leftArrowEl.addEventListener('click', leftArrowHandler);
-rightArrowEl.addEventListener('click', rightArrowHandler);
-dogPhotoEl.addEventListener('click', imageHandler);
-closeModalEl.addEventListener('click', closeModalHandler);
-closeAlertModalEl.addEventListener('click', closeModalHandler);
-closeZipcodeModalEl.addEventListener('click', closeModalHandler);
-contactBtnEl.addEventListener('click', contactModalHandler);
-closeContactModalEl.addEventListener('click', closeModalHandler);
-cancelContactEl.addEventListener('click', closeModalHandler);
-emailContentEl.addEventListener('input', emailContentHandler);
+
 
 
 //dog family slide show
@@ -408,3 +401,32 @@ function topFunction() {
   });
 })();
 
+//Save favorite
+var saveFavoriteHandler = function(){
+
+  var favoriteDog = {
+    name: dogNameEl.innerHTML,
+    photo: dogPhotoUrl,
+    orgUrl: orgUrl,
+  }
+
+  favorites.push(favoriteDog);
+  localStorage.setItem("dogs", JSON.stringify(favorites));
+  console.log(JSON.parse(localStorage.getItem("dogs")));
+
+
+}
+
+//Button and Form handlers
+searchFormEl.addEventListener('submit', formSubmitHandler);
+leftArrowEl.addEventListener('click', leftArrowHandler);
+rightArrowEl.addEventListener('click', rightArrowHandler);
+dogPhotoEl.addEventListener('click', imageHandler);
+closeModalEl.addEventListener('click', closeModalHandler);
+closeAlertModalEl.addEventListener('click', closeModalHandler);
+closeZipcodeModalEl.addEventListener('click', closeModalHandler);
+contactBtnEl.addEventListener('click', contactModalHandler);
+closeContactModalEl.addEventListener('click', closeModalHandler);
+cancelContactEl.addEventListener('click', closeModalHandler);
+emailContentEl.addEventListener('input', emailContentHandler);
+favoriteBtnEl.addEventListener('click', saveFavoriteHandler);
