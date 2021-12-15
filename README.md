@@ -56,6 +56,7 @@ specifically highlights dogs with special needs, older dogs and dogs which findi
 - Search criteria options
 - Gathering of dog's personalized information
 - Ability to create a favorites list
+- User email contact for dog interest 
 
 
 
@@ -76,9 +77,18 @@ Volunteer Calendar
 ## Resources
 
 Basic styling and layouts:  https://bulma.io/documentation/
-Petfinder API: https://www.petfinder.com/developers/v2/docs/#request-structure
-Fonts: https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fuzzy+Bubbles&family=Open+Sans+Condensed:wght@300&family=Shadows+Into+Light&display=swap
 
+Pet finder API: https://www.petfinder.com/developers/v2/docs/#request-structure
+
+The Dog API:  https://api.thedogapi.com
+
+Google Fonts: https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fuzzy+Bubbles&family=Open+Sans+Condensed:wght@300&family=Shadows+Into+Light&display=swap
+
+Font Awesome: https://use.fontawesome.com/releases/v5.8.1/css/all.css
+
+## Deployed Link
+
+https://jddlwlr.github.io/You-Lucky-Dog/
 
 
 
