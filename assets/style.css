@@ -139,69 +139,58 @@ body {
 }
 
 
-
 #petSlideshow {
     visibility:initial;
     max-width: 1000px;
     position: relative;
-    margin: auto;   
+    margin: auto;
+    justify-content: center;  
+    padding-bottom: 20px;
+
 
 
 }
 
 img {
-    vertical-align: middle;
-    width: 100%;
+    vertical-align: bottom;
+    
 }
 
 /*positions the arrows center*/
 
 #leftArrow {
     cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
+    position: relative;
+    width: 100%;
     color: black;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    transition: 0.2s ease;
     user-select: none;
+    border-radius: none;
+    
   }
 
   #rightArrow {
     cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
+    position: relative;
+    width: 100%;
     color: black;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    transition: 0.2s ease;
     user-select: none;
+    border-radius: none;
   }
   
   
-  /* Position the "next button" to the right */
-  .rightArrow {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a grey background color */
   #rightArrow:hover {
-    background-color: #f1f1f1;
-    color: black;
+    color: #f1f1f1;
   }
 
   #leftArrow:hover {
-    background-color: #f1f1f1;
-    color: black;
+   color: #f1f1f1;
+    
   }
 
 
@@ -280,13 +269,6 @@ img {
     margin-bottom: 20px;
 }*/
 
-.petfavs {
-    display: flexbox;
-}
-
-customAlign{
-    justify-self: left;
-}
 
 
 
