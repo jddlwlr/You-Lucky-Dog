@@ -278,6 +278,10 @@ img {
     margin-bottom: 20px;
 }*/
 
+.petfavs {
+    display: flexbox;
+}
+
 
 
 
