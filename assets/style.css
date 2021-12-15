@@ -132,7 +132,6 @@ body {
 }
 
 
-
 #petSlideshow {
     visibility:initial;
     max-width: 1000px;
@@ -147,7 +146,7 @@ body {
 
 img {
     vertical-align: middle;
-    width: 300px;
+
 }
 
 /*positions the arrows center*/
@@ -277,10 +276,6 @@ img {
     width: 50%;
     margin-bottom: 20px;
 }*/
-
-.petfavs {
-    display: flexbox;
-}
 
 
 
