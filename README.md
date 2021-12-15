@@ -78,7 +78,7 @@ Volunteer Calendar
 
 Basic styling and layouts:  https://bulma.io/documentation/
 
-Petfinder API: https://www.petfinder.com/developers/v2/docs/#request-structure
+Pet finder API: https://www.petfinder.com/developers/v2/docs/#request-structure
 
 The Dog API:  https://api.thedogapi.com
 
