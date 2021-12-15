@@ -35,6 +35,13 @@ body {
     
 }
 
+.subtitle {
+    
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 40px;
+    
+}
+
 .phrase {
     font-family: 'Shadows Into Light', cursive;
     font-size: 40px;
@@ -261,6 +268,11 @@ img {
     width: 50%;
     margin-bottom: 20px;
 }*/
+
+.box {
+    min-height: 200px;
+    max-height: 200px;
+}
 
 
 
