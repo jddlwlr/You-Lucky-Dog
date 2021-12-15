@@ -68,6 +68,7 @@ var emailSubject='';
 var emailUrl='';
 var emailContent='';
 var orgUrl='';
+var dogNameHelper=''
 
 //Submit Form event handler
 var formSubmitHandler = function (event) {
@@ -203,6 +204,7 @@ var showPetResults = function (results){
     dogPhotoLargeUrl = results.animals[petArrayPosition].photos[0].large;
   }
   aboutThisDogEl.textContent ='About ' + results.animals[petArrayPosition].name;
+  dogNameHelper= results.animals[petArrayPosition].name + '!';
   dogNameEl.textContent = 'Meet ' + results.animals[petArrayPosition].name + "!";
   dogPhotoEl.setAttribute("src",dogPhotoUrl);
   dogPhotoEl.setAttribute("class", "show");
@@ -405,7 +407,7 @@ function topFunction() {
 var saveFavoriteHandler = function(){
 
   var favoriteDog = {
-    name: dogNameEl.innerHTML,
+    name: dogNameHelper,
     photo: dogPhotoUrl,
     orgUrl: orgUrl,
   }
@@ -414,6 +416,17 @@ var saveFavoriteHandler = function(){
   localStorage.setItem("dogs", JSON.stringify(favorites));
   console.log(JSON.parse(localStorage.getItem("dogs")));
 
+
+}
+
+function init() {
+  // Get stored favorites from localStorage
+  var storedDogs = JSON.parse(localStorage.getItem("dogs"));
+
+  // If cities were retrieved from localStorage, update the favorites array to it
+  if (storedDogs !== null) {
+    favorites = storedDogs;
+  }
 
 }
 
@@ -430,3 +443,5 @@ closeContactModalEl.addEventListener('click', closeModalHandler);
 cancelContactEl.addEventListener('click', closeModalHandler);
 emailContentEl.addEventListener('input', emailContentHandler);
 favoriteBtnEl.addEventListener('click', saveFavoriteHandler);
+
+init();
