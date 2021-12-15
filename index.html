@@ -115,8 +115,8 @@
 
 
             <!--First Column-->
-            <div class="columns is-mobile is-desktop is-multiline is-centered">
-              <div id="column1" class="column remove">
+            <div class="columns is-variable is-centered">
+              <div id="column1" class="column is-one-third remove">
                 <div class="notification is-primary breedInfo" id="breedContainer">
                   <div id="pet-results">
                     <p>
@@ -137,30 +137,25 @@
 
 
               <!--Second Column-->
-              <div id="column2" class="column remove">
+              <div id="column2" class="column is-one-third remove">
                 <div class="notification is-primary slideshow" id="petSlideshow">
-                  <div id="pet-photo">
                     <h3><span id="dog-name"> </span></h3>
-                    <div class="level">
-                      <div class=level-left>
-                        <div class=level-item>
-                          <button id="leftArrow" class="no-show leftArrow">&#10094;</button>
-                        </div>
-                      </div>
-                      <div class=level-right>
-                        <div class=level-item>
+                    <div class= "image is-3by4" id="pet-photo">
                           <img id="dog-photo" class="no-show" src="" alt="Photo of Dog"></img>
-                        </div>
-                        <div class=level-item>
-                          <button id="rightArrow" class="no-show rightArrow">&#10095;</button>
-                        </div>
                       </div>
+                    </div>
+                  
+                    <div class="columns is-mobile is-warning is-gapless">
+                      <div class="column is-warning">
+                        <button id="leftArrow" class="no-show leftArrow">&#10094;</button>
+                      </div>
+                    <div class="column is-warning">
+                      <button id="rightArrow" class="no-show rightArrow">&#10095;</button>
                     </div>
                   </div>
                 </div>
-              </div>
               <!--Third Column-->
-              <div id="column3" class="column remove">
+              <div id="column3" class="column is-one-third remove">
                 <div class="notification is-primary" id="breedContainer2">
                   <div id="breed-data">
                     <h3><span id="dog-breed"> </span></h3>
