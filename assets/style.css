@@ -1,3 +1,5 @@
+
+
 body {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 30px;
@@ -119,6 +121,7 @@ body {
     
 }
 
+/*Visibility styling for containers so they only show when results render*/
 .no-show{
     visibility:hidden;
     }
@@ -226,7 +229,6 @@ img {
 
   }
   #topBtn {
-    /*display: none;*/
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -260,15 +262,4 @@ img {
 .remove{
     display:none;
 }
-
-/*#lucky{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    margin-bottom: 20px;
-}*/
-
-
-
 
