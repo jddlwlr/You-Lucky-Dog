@@ -54,6 +54,8 @@ var breedUseEl = document.querySelector('#breed-use');
 var breedAgeEl = document.querySelector('#breed-age');
 var breedTempermentEl = document.querySelector('#breed-temperment');
 
+
+
 //Additional variables
 var petFinderResults;
 var petArrayPosition = 0;
@@ -210,7 +212,7 @@ var showPetResults = function (results){
 
   orgUrlEl.setAttribute("href", orgUrl);
   orgUrlEl.setAttribute("class", "");
-  orgUrlEl.innerHTML = '<button class="button is-primary">Visit the About page for this dog</button>';
+  orgUrlEl.innerHTML = '<button class="button is-primary"> About ' + results.animals[petArrayPosition].name + ' ! </button>';
 
 
   contactEmailEl.textContent = 'Email: ' + contactEmail;
@@ -361,3 +363,48 @@ contactBtnEl.addEventListener('click', contactModalHandler);
 closeContactModalEl.addEventListener('click', closeModalHandler);
 cancelContactEl.addEventListener('click', closeModalHandler);
 emailContentEl.addEventListener('input', emailContentHandler);
+
+
+//dog family slide show
+
+
+$("#dogFamilies > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#dogFamilies > div:first')
+  .fadeOut(1000)
+  .next()
+  .fadeIn(1000)
+  .end()
+  .appendTo('#dogFamilies');
+}, 3000)
+
+//button to scroll back to the top
+var topButton = document.getElementById("topBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 1500) {
+  topButton.style.display = "block";
+  } else {
+    topButton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+// hamburger toggle functionality
+
+(function () {
+  var burger = document.querySelector('.navbar-burger');
+  var menu = document.querySelector('#' + burger.dataset.target);
+  burger.addEventListener('click', function () {
+      burger.classList.toggle('is-active');
+      menu.classList.toggle('is-active');
+  });
+})();
+
