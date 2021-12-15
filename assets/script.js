@@ -195,8 +195,8 @@ var showPetResults = function (results){
   }
 
   if (results.animals[petArrayPosition].photos.length === 0){
-    dogPhotoUrl = 'assets/images/no-image.png';
-    dogPhotoLargeUrl = 'assets/images/no-image.png';
+    dogPhotoUrl = 'assets/images/paw.jpg';
+    dogPhotoLargeUrl = 'assets/images/paw.png';
   }
 
   else{
