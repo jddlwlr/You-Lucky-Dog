@@ -74,7 +74,7 @@ Highlight Reel
 Volunteer Calendar
     - Shows available times and dates to volunteer at a local shelter
 
-## Resources
+## Resources and Technologies Used
 
 Basic styling and layouts:  https://bulma.io/documentation/
 
@@ -85,6 +85,19 @@ The Dog API:  https://api.thedogapi.com
 Google Fonts: https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fuzzy+Bubbles&family=Open+Sans+Condensed:wght@300&family=Shadows+Into+Light&display=swap
 
 Font Awesome: https://use.fontawesome.com/releases/v5.8.1/css/all.css
+
+## License
+This project is licensed under the terms of the MIT license.
+
+## Additional Guidance
+
+Please be aware that the API references in the code were for demo purposes only and will not be active.  To make your own project using this code, be sure to create your own accounts with the API providers in order to get API keys to use in your code.  Replace the existing placeholder keys (i.e. where it says "apikey=" or "client_id" with your own.  As always, be sure to read the documentation from the API providers for a full understanding of what keys are required for making the calls and other terms and conditions.
+
+## Contact Us
+Visit the profile pages of the collaborators to get in touch:
+    jddlwlr
+    javiscarr
+    mel-ificent
 
 ## Deployed Link
 
